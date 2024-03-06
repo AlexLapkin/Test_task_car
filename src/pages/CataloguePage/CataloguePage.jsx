@@ -31,7 +31,7 @@ const DrinkPage = () => {
         description={drink.description}
         imgPath={drink.drinkThumb}
       /> */}
-      <AdvertList ingredients={drink.ingredients} />
+      <AdvertList adverts={drink.ingredients} />
       {/* <RecipePreparation instructions={drink.instructions} /> */}
     </>
   );
