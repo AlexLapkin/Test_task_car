@@ -12,9 +12,9 @@ export const App = () => {
   return (
     <Routes>
       <Route path="/" element={<SharedLayout />}>
-        <Route index element={<Home />} />
+        {/* <Route index element={<Home />} /> */}
         <Route path="catalog" element={<Catalog />} />
-        <Route path="favorites" element={<Favorites />} />
+        {/* <Route path="favorites" element={<Favorites />} /> */}
         {/* <Route path="movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />

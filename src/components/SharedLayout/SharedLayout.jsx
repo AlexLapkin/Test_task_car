@@ -9,12 +9,14 @@ import Loader from 'components/Loader/Loader';
 import { useSelector } from 'react-redux';
 
 const SharedLayout = () => {
-  const { token } = useSelector(state => state.auth);
+  // const { token } = useSelector(state => state.auth);
 
   return (
     <>
       {/* <StyledBackground /> */}
-      <div className={token ? 'mainBackground' : 'welcomeBackground'}>
+      {/* <div className={token ? 'mainBackground' : 'welcomeBackground'}> */}
+
+      <div>
         {/* {token && <Header />} */}
         {/* <StyledMain> */}
         <Suspense fallback={<Loader />}>

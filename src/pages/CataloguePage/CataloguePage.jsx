@@ -4,19 +4,22 @@ import AdvertList from '../../components/AdvertList/AdvertList';
 // import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
 // import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { useParams } from 'react-router-dom';
-import { getDrinkById } from '../../redux/drinks/drinks.operations';
-import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
-import { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+// import { getDrinkById } from '../../redux/drinks/drinks.operations';
+// import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
+// import { useEffect } from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
+import adverts from './../../helpers/adsCars.json';
 
 const DrinkPage = () => {
-  const dispatch = useDispatch();
-  const { drinkId } = useParams();
-  const drink = useSelector(state => selectDrinkById(state, drinkId));
+  //   const dispatch = useDispatch();
+  //   const { drinkId } = useParams();
+  // const drink = useSelector(state => selectDrinkById(state, drinkId));
+  //   const adverts = useSelector(state => selectDrinkById(state, drinkId));
 
-  useEffect(() => {
-    dispatch(getDrinkById(drinkId));
-  }, [dispatch, drinkId]);
+  //   useEffect(() => {
+  //     dispatch(getDrinkById(drinkId));
+  //   }, [dispatch, drinkId]);
+  console.log(adverts);
 
   return (
     // <Container>
@@ -31,7 +34,7 @@ const DrinkPage = () => {
         description={drink.description}
         imgPath={drink.drinkThumb}
       /> */}
-      <AdvertList adverts={drink.ingredients} />
+      <AdvertList adverts={adverts} />
       {/* <RecipePreparation instructions={drink.instructions} /> */}
     </>
   );
