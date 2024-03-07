@@ -10,6 +10,7 @@ export const getAllAdverts = createAsyncThunk(
     try {
       const { data } = await axios.get('/adverts');
       // Це буде записано в action.payload ({ payload }) редюсера
+      // console.log(data);
       return data;
     } catch (err) {
       return thunkAPI.rejectWithValue(err.response.data);
@@ -19,9 +20,9 @@ export const getAllAdverts = createAsyncThunk(
 
 export const getAdvertById = createAsyncThunk(
   'adverts/getById',
-  async (carId, thunkAPI) => {
+  async (advertId, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/adverts/${carId}`);
+      const { data } = await axios.get(`/adverts/${advertId}`);
       // Це буде записано в action.payload ({ payload }) редюсера
       return data;
     } catch (err) {
@@ -63,9 +64,9 @@ export const addToFavorites = createAsyncThunk(
 
 export const removeFromFavorites = createAsyncThunk(
   'adverts/deleteFromFavorites',
-  async (carId, thunkAPI) => {
+  async (advertId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`/adverts/favorites/${carId}`);
+      const { data } = await axios.delete(`/adverts/favorites/${advertId}`);
       // Повідомлення про видалення з книги контакту
       Notiflix.Notify.info(`Car ${data.name} is deleted!`, {
         position: 'right-center',

@@ -4,10 +4,10 @@ import AdvertListItem from 'components/AdvertListItem/AdvertListItem';
 // import PropTypes from 'prop-types';
 
 const AdvertList = ({ adverts }) => {
-  console.log(adverts);
+  // console.log(adverts);
   return (
     <ul className={css.mov_ul_title}>
-      {adverts !== null &&
+      {adverts &&
         adverts.map(({ id, make, model, img, rentalPrice, year }) => (
           <AdvertListItem
             key={id}

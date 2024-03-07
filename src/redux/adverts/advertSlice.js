@@ -5,7 +5,7 @@ import {
   getFavoriteAll,
   addToFavorites,
   removeFromFavorites,
-} from './operations';
+} from './adverts.operations';
 
 const initialState = {
   adverts: [],
@@ -25,6 +25,8 @@ const advertsSlice = createSlice({
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.adverts = payload;
+        // console.log(payload);
+        // console.log(typeof payload);
       })
       .addCase(getAdvertById.fulfilled, (state, { payload }) => {
         state.isLoading = false;

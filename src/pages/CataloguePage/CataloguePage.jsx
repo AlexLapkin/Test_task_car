@@ -4,30 +4,36 @@ import AdvertList from '../../components/AdvertList/AdvertList';
 // import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
 // import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
 // import { useParams } from 'react-router-dom';
-// import { getDrinkById } from '../../redux/drinks/drinks.operations';
-// import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
-// import { useEffect } from 'react';
-// import { useSelector, useDispatch } from 'react-redux';
+import { getAllAdverts } from '../../redux/adverts/adverts.operations';
+import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
+import { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './../../components/Container/Container';
-import adverts from './../../helpers/adsCars.json';
+import SearchBar from 'components/SearchBar/SearchBar';
+import { Wrapper } from 'components/SearchBar/SearchBar.styled';
+import { PageWrapper } from './CataloguePage.styled';
+import SearchButton from 'components/SearchBar/SearchButton';
+// import adverts from './../../helpers/adsCars.json';
+// import { getAllAdverts } from 'redux/operations';
 
 const CataloguePage = () => {
-  //   const dispatch = useDispatch();
+  const dispatch = useDispatch();
   //   const { drinkId } = useParams();
   // const drink = useSelector(state => selectDrinkById(state, drinkId));
-  //   const adverts = useSelector(state => selectDrinkById(state, drinkId));
+  const adverts = useSelector(state => selectAllAdverts(state));
+  // console.log(adverts);
 
-  //   useEffect(() => {
-  //     dispatch(getDrinkById(drinkId));
-  //   }, [dispatch, drinkId]);
-  console.log(adverts);
+  useEffect(() => {
+    dispatch(getAllAdverts());
+  }, [dispatch]);
+  // console.log(adverts);
 
   return (
     <Container>
-      {/* <DrinkPageWrapper> */}
-      {/* {drink && ( */}
-      <>
-        {/* <AdvertList
+      <PageWrapper>
+        {adverts && (
+          <>
+            {/* <AdvertList
         id={drink._id}
         name={drink.drink}
         glass={drink.glass}
@@ -35,11 +41,13 @@ const CataloguePage = () => {
         description={drink.description}
         imgPath={drink.drinkThumb}
       /> */}
-        <AdvertList adverts={adverts} />
-        {/* <RecipePreparation instructions={drink.instructions} /> */}
-      </>
-
-      {/* </DrinkPageWrapper> */}
+            <SearchBar />
+            {/* <SearchBar onSubmit={formSubmit} /> */}
+            <AdvertList adverts={adverts} />
+            {/* <RecipePreparation instructions={drink.instructions} /> */}
+          </>
+        )}
+      </PageWrapper>
     </Container>
   );
 };
