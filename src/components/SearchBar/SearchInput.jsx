@@ -1,17 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
+// import React, { useState } from 'react';
 import { SearchInputWrapper } from './SearchInput.styled';
 
 const SearchInput = () => {
   // Создаем состояние для хранения выбранного значения
-  const [selectedValue, setSelectedValue] = useState('');
+  //const [selectedValue, setSelectedValue] = useState('');
 
   // Массив данных для выпадающего списка
-  const options = ['Option 1', 'Option 2', 'Option 3'];
+  // const options = ['Option 1', 'Option 2', 'Option 3'];
 
   // Обработчик изменения значения в выпадающем списке
-  const handleSelectChange = e => {
-    setSelectedValue(e.target.value);
-  };
+  // const handleSelectChange = e => {
+  //   setSelectedValue(e.target.value);
+  // };
 
   return (
     // <SearchInputWrapper value={selectedValue} onChange={handleSelectChange}>

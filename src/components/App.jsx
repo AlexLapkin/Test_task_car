@@ -2,9 +2,9 @@ import { lazy } from 'react';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
-const Home = lazy(() => import('pages/HomePage/HomePage'));
+//const Home = lazy(() => import('pages/HomePage/HomePage'));
 const Catalog = lazy(() => import('pages/CataloguePage/CataloguePage'));
-const Favorites = lazy(() => import('pages/AdvertPage/AdvertPage'));
+//const Favorites = lazy(() => import('pages/AdvertPage/AdvertPage'));
 // const Cast = lazy(() => import('components/Cast/Cast'));
 // const Reviews = lazy(() => import('components/Reviews/Reviews'));
 
