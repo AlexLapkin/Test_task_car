@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 import css from './AdvertListItem.module.css';
 // import PropTypes from 'prop-types';
 
-const AdvertListItem = ({ make, model, id, img }) => {
+const AdvertListItem = ({ make, model, id, img, rentalPrice, year }) => {
   const location = useLocation();
 
   return (
@@ -15,8 +15,29 @@ const AdvertListItem = ({ make, model, id, img }) => {
         state={{ from: location }}
       >
         <img className={css.mov_title_img} src={img} alt="" />
-        <p className={css.mov_text}>{make}</p>
+        <div className={css.adv_text_cont}>
+          <div className={css.adv_text_cont_add}>
+            <p className={css.mov_text}>{make}</p>
+            <p className={css.mov_text}>{model}</p>
+            <p className={css.mov_text}>{year}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+          </div>
+          <div className={css.adv_text_cont_add}>
+            <p className={css.mov_text}>{make}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+          </div>
+          <div className={css.adv_text_cont_add}>
+            <p className={css.mov_text}>{make}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+            <p className={css.mov_text}>{rentalPrice}</p>
+          </div>
+        </div>
+        {/* <p className={css.mov_text}>{model}</p> */}
       </NavLink>
+      <button className={css.btn_learn_more}>Learn more</button>
     </li>
   );
 };

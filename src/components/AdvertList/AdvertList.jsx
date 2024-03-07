@@ -8,11 +8,13 @@ const AdvertList = ({ adverts }) => {
   return (
     <ul className={css.mov_ul_title}>
       {adverts !== null &&
-        adverts.map(({ id, make, model, img }) => (
+        adverts.map(({ id, make, model, img, rentalPrice, year }) => (
           <AdvertListItem
             key={id}
-            name={make}
-            title={model}
+            make={make}
+            model={model}
+            rentalPrice={rentalPrice}
+            year={year}
             id={id}
             img={img}
           />

@@ -8,9 +8,10 @@ import AdvertList from '../../components/AdvertList/AdvertList';
 // import { selectDrinkById } from '../../redux/drinks/drinks.selectors';
 // import { useEffect } from 'react';
 // import { useSelector, useDispatch } from 'react-redux';
+import { Container } from './../../components/Container/Container';
 import adverts from './../../helpers/adsCars.json';
 
-const DrinkPage = () => {
+const CataloguePage = () => {
   //   const dispatch = useDispatch();
   //   const { drinkId } = useParams();
   // const drink = useSelector(state => selectDrinkById(state, drinkId));
@@ -22,11 +23,11 @@ const DrinkPage = () => {
   console.log(adverts);
 
   return (
-    // <Container>
-    //   <DrinkPageWrapper>
-    // {drink && (
-    <>
-      {/* <AdvertList
+    <Container>
+      {/* <DrinkPageWrapper> */}
+      {/* {drink && ( */}
+      <>
+        {/* <AdvertList
         id={drink._id}
         name={drink.drink}
         glass={drink.glass}
@@ -34,14 +35,13 @@ const DrinkPage = () => {
         description={drink.description}
         imgPath={drink.drinkThumb}
       /> */}
-      <AdvertList adverts={adverts} />
-      {/* <RecipePreparation instructions={drink.instructions} /> */}
-    </>
+        <AdvertList adverts={adverts} />
+        {/* <RecipePreparation instructions={drink.instructions} /> */}
+      </>
+
+      {/* </DrinkPageWrapper> */}
+    </Container>
   );
 };
-//   </DrinkPageWrapper>
-// </Container>
-//   );
-//  };
 
-export default DrinkPage;
+export default CataloguePage;
