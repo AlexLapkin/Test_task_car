@@ -2,7 +2,6 @@ import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import css from './AdvertListItem.module.css';
-// import PropTypes from 'prop-types';
 
 const AdvertListItem = ({ make, model, id, img, rentalPrice, year }) => {
   const location = useLocation();
@@ -41,11 +40,5 @@ const AdvertListItem = ({ make, model, id, img, rentalPrice, year }) => {
     </li>
   );
 };
-
-// MovieListItem.propTypes = {
-//   title: PropTypes.string,
-//   name: PropTypes.string,
-//   id: PropTypes.number,
-// };
 
 export default AdvertListItem;

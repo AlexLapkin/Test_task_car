@@ -10,9 +10,9 @@ import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from './../../components/Container/Container';
 import SearchBar from 'components/SearchBar/SearchBar';
-import { Wrapper } from 'components/SearchBar/SearchBar.styled';
+// import { Wrapper } from 'components/SearchBar/SearchBar.styled';
 import { PageWrapper } from './CataloguePage.styled';
-import SearchButton from 'components/SearchBar/SearchButton';
+// import SearchButton from 'components/SearchBar/SearchButton';
 // import adverts from './../../helpers/adsCars.json';
 // import { getAllAdverts } from 'redux/operations';
 
