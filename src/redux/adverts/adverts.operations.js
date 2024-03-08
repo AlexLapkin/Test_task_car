@@ -4,16 +4,34 @@ import Notiflix from 'notiflix';
 
 axios.defaults.baseURL = 'https://65e7810d53d564627a8eef18.mockapi.io';
 
+// export const getAllAdverts = createAsyncThunk(
+//   'adverts/getAll',
+//   async (_, thunkAPI) => {
+//     try {
+//       const { data } = await axios.get('/adverts');
+//       // Це буде записано в action.payload ({ payload }) редюсера
+//       // console.log(data);
+//       return data;
+//     } catch (err) {
+//       return thunkAPI.rejectWithValue(err.response.data);
+//     }
+//   }
+// );
+
 export const getAllAdverts = createAsyncThunk(
   'adverts/getAll',
-  async (_, thunkAPI) => {
+  async ({ limit, page }, thunkAPI) => {
+    const searchParams = {
+      params: {
+        limit,
+        page,
+      },
+    };
     try {
-      const { data } = await axios.get('/adverts');
-      // Це буде записано в action.payload ({ payload }) редюсера
-      // console.log(data);
+      const { data } = await axios.get('/adverts', searchParams);
       return data;
-    } catch (err) {
-      return thunkAPI.rejectWithValue(err.response.data);
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
     }
   }
 );

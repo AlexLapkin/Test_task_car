@@ -1,10 +1,29 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { openModal } from 'redux/modal/modalSlice';
 import css from './AdvertListItem.module.css';
 
-const AdvertListItem = ({ make, model, id, img, rentalPrice, year, type }) => {
+const AdvertListItem = ({
+  make,
+  model,
+  id,
+  img,
+  rentalPrice,
+  year,
+  type,
+  address,
+  fuelConsumption,
+  engineSize,
+  description,
+  accessories,
+  functionalities,
+  rentalConditions,
+  mileage,
+}) => {
   const location = useLocation();
+  const dispatch = useDispatch();
 
   return (
     <li className={css.mov_item} key={id}>
@@ -36,7 +55,33 @@ const AdvertListItem = ({ make, model, id, img, rentalPrice, year, type }) => {
         </div>
         {/* <p className={css.mov_text}>{model}</p> */}
       </NavLink>
-      <button className={css.btn_learn_more}>Learn more</button>
+      <button
+        onClick={() =>
+          dispatch(
+            openModal({
+              make,
+              model,
+              year,
+              address,
+              id,
+              type,
+              fuelConsumption,
+              engineSize,
+              description,
+              accessories,
+              functionalities,
+              rentalConditions,
+              mileage,
+              rentalPrice,
+              img,
+            })
+          )
+        }
+        type="button"
+        className={css.btn_learn_more}
+      >
+        Learn more
+      </button>
     </li>
   );
 };

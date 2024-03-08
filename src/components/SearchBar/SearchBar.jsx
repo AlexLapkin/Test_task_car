@@ -9,17 +9,20 @@ import {
 } from './SearchBar.styled';
 import SearchButton from './SearchButton';
 import { Wrapper, Wrap, WrapCont } from './SearchBar.styled';
+import optionsBrand from './../../helpers/makes.json';
 
 const SearchBar = () => {
   // Создаем состояние для хранения выбранного значения
   const [selectedValue, setSelectedValue] = useState('');
+
+  const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
 
   // Массив данных для выпадающего списка
   const options = ['Option 1', 'Option 2', 'Option 3'];
 
   // Обработчик изменения значения в выпадающем списке
   const handleSelectChange = e => {
-    setSelectedValue(e.target.value);
+    setSelectedValueCarBrand(e.target.value);
   };
 
   return (
@@ -28,11 +31,11 @@ const SearchBar = () => {
         <Wrap>
           <SearchSelectText>Car brand</SearchSelectText>
           <SearchSelectBrand
-            value={selectedValue}
+            value={selectedValueCarBrand}
             onChange={handleSelectChange}
           >
             <option value="">Enter the text</option>
-            {options.map((option, index) => (
+            {optionsBrand.map((option, index) => (
               <option key={index} value={option}>
                 {option}
               </option>
