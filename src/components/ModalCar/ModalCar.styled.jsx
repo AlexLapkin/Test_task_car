@@ -15,12 +15,11 @@ export const StyledModal = styled.div`
     cursor: pointer;
   }
   .modal {
-    padding: 20px;
-    max-width: 450px;
-    width: 100%;
-    min-height: 450px;
+    padding: 40px;
+    width: 461px;
+    height: 672px;
     background-color: white;
-    border-radius: 10px;
+    border-radius: 24px;
     position: absolute;
     left: 50%;
     top: 50%;
@@ -35,4 +34,23 @@ export const StyledModal = styled.div`
     top: 15px;
     right: 15px;
   }
+`;
+
+export const CarPhoto = styled.img`
+  display: block;
+  width: 461px;
+  height: 248px;
+  border-radius: 14px;
+`;
+
+export const ButtonRent = styled.button`
+  display: block;
+  width: 168px;
+  height: 44px;
+  border-radius: 12px;
+  background-color: #3470ff;
+  color: white;
+  border: none;
+  margin-bottom: 40px;
+  margin-top: 24px;
 `;

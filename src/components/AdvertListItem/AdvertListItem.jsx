@@ -61,10 +61,12 @@ const AdvertListItem = ({
             openModal({
               make,
               model,
-              year,
-              address,
               id,
+              img,
+              rentalPrice,
+              year,
               type,
+              address,
               fuelConsumption,
               engineSize,
               description,
@@ -72,8 +74,6 @@ const AdvertListItem = ({
               functionalities,
               rentalConditions,
               mileage,
-              rentalPrice,
-              img,
             })
           )
         }

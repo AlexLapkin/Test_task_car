@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
-import { StyledModal } from './ModalCar.styled';
+import { StyledModal, CarPhoto, ButtonRent } from './ModalCar.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from 'redux/modal/modalSlice';
 import { selectModalData } from 'redux/modal/modal.selectors';
@@ -8,7 +8,6 @@ import { selectModalData } from 'redux/modal/modal.selectors';
 const ModalCar = () => {
   const modalData = useSelector(selectModalData);
   const dispatch = useDispatch();
-  //   const [counter, setCounter] = useState(1);
 
   useEffect(() => {
     const handleKeyDown = event => {
@@ -38,15 +37,35 @@ const ModalCar = () => {
         <button onClick={() => dispatch(closeModal())} className="closeBtn">
           ❌
         </button>
-        <h2>Product Details</h2>
         <div>
-          <h3>Title: {modalData.title}</h3>
-          <p>Price: {modalData.price}$</p>
-          <p>Discount: {modalData.discount}$</p>
+          <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
+          <h3>
+            {modalData.make} {modalData.model}, {modalData.year}
+          </h3>
+          <p>
+            {modalData.address.slice(modalData.address.indexOf(',') + 2)} id:{' '}
+            {modalData.id} Year: {modalData.year} Type: {modalData.type}
+          </p>
+          <p>
+            Fuel Consumption: {modalData.fuelConsumption} Engine Size:{' '}
+            {modalData.engineSize}
+          </p>
+
+          <p>{modalData.description}</p>
+          <p>
+            Accessories and functionalities: {modalData.accessories}
+            {modalData.functionalities}
+          </p>
+          <p>Rental conditions: Minimum age:25 Valid driver's license</p>
+          <p></p>
+          <p>
+            Security deposite required Mileage: {modalData.mileage} Price:{' '}
+            {modalData.rentalPrice}
+          </p>
+          {/* <p>Mileage: {modalData.mileage}</p> */}
+          {/* <p>Price: {modalData.rentalPrice}</p> */}
+          <ButtonRent>Rental car</ButtonRent>
         </div>
-        {/* <button onClick={() => setCounter(prev => prev + 1)}>
-          Product count: {counter} */}
-        {/* </button> */}
       </div>
     </StyledModal>
   );
