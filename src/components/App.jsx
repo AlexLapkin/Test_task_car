@@ -3,7 +3,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import SharedLayout from 'components/SharedLayout/SharedLayout';
 
 const Home = lazy(() => import('pages/HomePage/HomePage'));
-const Catalog = lazy(() => import('pages/CataloguePage/CataloguePage'));
+const Catalog = lazy(() => import('pages/CatalogPage/CatalogPage'));
 const Favorites = lazy(() =>
   import('pages/FavoriteAdvertPage/FavoriteAdvertPage')
 );

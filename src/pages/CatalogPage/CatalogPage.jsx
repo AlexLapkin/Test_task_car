@@ -8,10 +8,10 @@ import { getAllAdverts } from '../../redux/adverts/adverts.operations';
 import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Container } from './../../components/Container/Container';
+import { Container } from '../../components/Container/Container';
 import SearchBar from 'components/SearchBar/SearchBar';
 // import { Wrapper } from 'components/SearchBar/SearchBar.styled';
-import { PageWrapper } from './CataloguePage.styled';
+import { PageWrapper } from './CatalogPage.styled';
 import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
 // import SearchButton from 'components/SearchBar/SearchButton';
@@ -26,7 +26,7 @@ const CataloguePage = () => {
   // console.log(adverts);
   const limit = 12;
   // const page = 1;
-  const [gallery, setGallery] = useState(null);
+  // const [gallery, setGallery] = useState(null);
   const [page, setPage] = useState(1);
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
