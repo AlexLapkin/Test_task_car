@@ -18,7 +18,7 @@ import ModalCar from 'components/ModalCar/ModalCar';
 // import adverts from './../../helpers/adsCars.json';
 // import { getAllAdverts } from 'redux/operations';
 
-const CataloguePage = () => {
+const CatalogPage = () => {
   const dispatch = useDispatch();
   //   const { drinkId } = useParams();
   // const drink = useSelector(state => selectDrinkById(state, drinkId));
@@ -81,4 +81,4 @@ const CataloguePage = () => {
   );
 };
 
-export default CataloguePage;
+export default CatalogPage;
