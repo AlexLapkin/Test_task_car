@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { NavLink } from 'react-router-dom';
 import css from './AdvertListItem.module.css';
 
-const AdvertListItem = ({ make, model, id, img, rentalPrice, year }) => {
+const AdvertListItem = ({ make, model, id, img, rentalPrice, year, type }) => {
   const location = useLocation();
 
   return (
@@ -28,9 +28,9 @@ const AdvertListItem = ({ make, model, id, img, rentalPrice, year }) => {
             <p className={css.mov_text}>{rentalPrice}</p>
           </div>
           <div className={css.adv_text_cont_add}>
-            <p className={css.mov_text}>{make}</p>
-            <p className={css.mov_text}>{rentalPrice}</p>
-            <p className={css.mov_text}>{rentalPrice}</p>
+            <p className={css.mov_text}>{type}</p>
+            <p className={css.mov_text}>{model}</p>
+            <p className={css.mov_text}>{id}</p>
             <p className={css.mov_text}>{rentalPrice}</p>
           </div>
         </div>
