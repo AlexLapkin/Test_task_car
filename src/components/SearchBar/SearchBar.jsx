@@ -13,7 +13,7 @@ import optionsBrand from './../../helpers/makes.json';
 
 const SearchBar = () => {
   // Создаем состояние для хранения выбранного значения
-  const [selectedValue, setSelectedValue] = useState('');
+  const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
 
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
 
@@ -21,8 +21,12 @@ const SearchBar = () => {
   const options = ['Option 1', 'Option 2', 'Option 3'];
 
   // Обработчик изменения значения в выпадающем списке
-  const handleSelectChange = e => {
+  const handleSelectBrandChange = e => {
     setSelectedValueCarBrand(e.target.value);
+  };
+
+  const handleSelectPriceChange = e => {
+    setSelectedValueCarPrice(e.target.value);
   };
 
   return (
@@ -32,7 +36,7 @@ const SearchBar = () => {
           <SearchSelectText>Car brand</SearchSelectText>
           <SearchSelectBrand
             value={selectedValueCarBrand}
-            onChange={handleSelectChange}
+            onChange={handleSelectBrandChange}
           >
             <option value="">Enter the text</option>
             {optionsBrand.map((option, index) => (
@@ -45,8 +49,8 @@ const SearchBar = () => {
         <Wrap>
           <SearchSelectText>Price/ 1hour</SearchSelectText>
           <SearchSelectPrice
-            value={selectedValue}
-            onChange={handleSelectChange}
+            value={selectedValueCarPrice}
+            onChange={handleSelectPriceChange}
           >
             <option value="">To $</option>
             {options.map((option, index) => (
