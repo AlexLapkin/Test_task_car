@@ -18,7 +18,7 @@ const CatalogPage = () => {
   const limit = 12;
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
-  console.log(page);
+
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {
@@ -43,22 +43,13 @@ const CatalogPage = () => {
   // }, [dispatch, page]);
 
   // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await dispatch(getAllAdverts({ limit: limit, page: page })).then(() =>
-  //       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts])
-  //     );
-  //   };
-  //   fetchData();
-  // }, [dispatch, page]);
-
-  // useEffect(() => {
   //   dispatch(getAllAdverts({ limit: limit, page: page })).then(() =>
   //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts])
   //   );
   // }, [dispatch, page]);
 
   console.log(allAdverts);
-
+  //
   return (
     <Container>
       <PageWrapper>
