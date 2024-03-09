@@ -7,6 +7,6 @@ export const selectAllAdverts = state => state.advertStore.adverts;
 export const selectAdverts = state => state.adverts.adverts;
 export const selectAdvertById = (state, advertId) =>
   state.adverts.adverts.find(advert => advert._id === advertId);
-export const selectFavoriteDrinks = state => state.advert.favoriteAdverts;
+export const selectFavoriteAdverts = state => state.advertStore.favoriteAdverts;
 // export const selectTotalDrinks = state => state.drinks.total;
 // export const selectPage = state => state.drinks.page;

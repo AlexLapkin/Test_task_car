@@ -1,14 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import {
-  getAllAdverts,
-  getAdvertById,
-  getFavoriteAll,
-  addToFavorites,
-  removeFromFavorites,
-} from './adverts.operations';
+import { getAllAdverts, getAdvertById } from './adverts.operations';
 
 const initialState = {
   adverts: [],
+  favoriteAdverts: [],
   isLoading: false,
   error: null,
 };
@@ -19,7 +14,19 @@ const advertsSlice = createSlice({
   // Початковий стан редюсера слайсу
   initialState,
   // Об'єкт редюсерів
-  reducers: {},
+  reducers: {
+    addToFavorites: (state, { payload }) => {
+      state.isLoading = false;
+      state.favoriteAdverts.push(payload);
+      console.log(payload);
+    },
+    removeFromFavorites: (state, { payload }) => {
+      state.isLoading = false;
+      state.favoriteAdverts = state.favoriteAdverts.filter(
+        advert => advert.id !== payload.id
+      );
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
@@ -32,42 +39,16 @@ const advertsSlice = createSlice({
         state.isLoading = false;
         state.adverts = payload;
       })
-      .addCase(getFavoriteAll.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.adverts = payload;
-      })
-      .addCase(addToFavorites.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.adverts = [...state.contacts, payload];
-      })
-      .addCase(removeFromFavorites.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.adverts = state.adverts.filter(
-          advert => advert.id !== payload.id
-        );
-      })
 
       .addMatcher(
-        isAnyOf(
-          getAllAdverts.pending,
-          getAdvertById.pending,
-          getFavoriteAll.pending,
-          addToFavorites.pending,
-          removeFromFavorites.pending
-        ),
+        isAnyOf(getAllAdverts.pending, getAdvertById.pending),
         state => {
           state.isLoading = true;
         }
       )
 
       .addMatcher(
-        isAnyOf(
-          getAllAdverts.rejected,
-          getAdvertById.rejected,
-          getFavoriteAll.rejected,
-          addToFavorites.rejected,
-          removeFromFavorites.rejected
-        ),
+        isAnyOf(getAllAdverts.rejected, getAdvertById.rejected),
         (state, { payload }) => {
           state.isLoading = false;
           state.error = payload;
@@ -77,3 +58,4 @@ const advertsSlice = createSlice({
 
 // Генератори екшн-креаторс
 export const advertsReducer = advertsSlice.reducer;
+export const { addToFavorites, removeFromFavorites } = advertsSlice.actions;
