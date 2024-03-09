@@ -1,9 +1,4 @@
-// import { Container } from '../../components/Layout/Container/Container';
-// import { DrinkPageWrapper } from './DrinkPage.styled';
 import AdvertList from '../../components/AdvertList/AdvertList';
-// import DrinkIngredientsList from '../../components/DrinkIngredientList/DrinkIngredientsList';
-// import RecipePreparation from '../../components/RecipePreparation/RecipePreparation';
-// import { useParams } from 'react-router-dom';
 import { getAllAdverts } from '../../redux/adverts/adverts.operations';
 import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
 import { useEffect, useState } from 'react';
@@ -16,62 +11,62 @@ import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
 // import SearchButton from 'components/SearchBar/SearchButton';
 // import adverts from './../../helpers/adsCars.json';
-// import { getAllAdverts } from 'redux/operations';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  //   const { drinkId } = useParams();
-  // const drink = useSelector(state => selectDrinkById(state, drinkId));
   const adverts = useSelector(state => selectAllAdverts(state));
-  // console.log(adverts);
   const limit = 12;
-  // const page = 1;
-  // const [gallery, setGallery] = useState(null);
+  const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
+  console.log(page);
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
-  // const fetchAdverts = page => {
-  //   try {
-  //     const { data } = getAllAdverts(page, limit);
-  //     setGallery(prevState => (page === 1 ? data : [...prevState, ...data]));
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+  const onClickLoadMore = () => {
+    setPage(prevState => prevState + 1);
+    // setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+  };
 
   useEffect(() => {
-    dispatch(getAllAdverts({ limit: limit, page: page }, [dispatch, page]));
-  });
+    dispatch(getAllAdverts({ limit: limit, page: page }));
+  }, [dispatch, page]);
+
+  useEffect(() => {
+    setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+  }, [adverts]);
 
   // useEffect(() => {
-  //   dispatch(fetchAdverts());
-  // });
+  //   const fetchData = async () => {
+  //     await dispatch(getAllAdverts({ limit: limit, page: page }));
+  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+  //   };
+  //   fetchData();
+  // }, [dispatch, page]);
 
-  // console.log(adverts);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     await dispatch(getAllAdverts({ limit: limit, page: page })).then(() =>
+  //       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts])
+  //     );
+  //   };
+  //   fetchData();
+  // }, [dispatch, page]);
 
-  const onClickLoadMore = () => {
-    // getAllAdverts({ limit: 0, page: 0 });
-    console.log(1);
-    setPage(prevState => prevState + 1);
-  };
+  // useEffect(() => {
+  //   dispatch(getAllAdverts({ limit: limit, page: page })).then(() =>
+  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts])
+  //   );
+  // }, [dispatch, page]);
+
+  console.log(allAdverts);
 
   return (
     <Container>
       <PageWrapper>
         {adverts && (
           <>
-            {/* <AdvertList
-        id={drink._id}
-        name={drink.drink}
-        glass={drink.glass}
-        alcoholic={drink.alcoholic}
-        description={drink.description}
-        imgPath={drink.drinkThumb}
-      /> */}
             <SearchBar />
             {/* <SearchBar onSubmit={formSubmit} /> */}
-            <AdvertList adverts={adverts} />
-            {/* <RecipePreparation instructions={drink.instructions} /> */}
+            <AdvertList adverts={allAdverts} />
             <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
           </>
         )}
