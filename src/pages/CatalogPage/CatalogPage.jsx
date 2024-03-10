@@ -5,24 +5,23 @@ import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '../../components/Container/Container';
 import SearchBar from 'components/SearchBar/SearchBar';
-// import { Wrapper } from 'components/SearchBar/SearchBar.styled';
-import { PageWrapper } from './CatalogPage.styled';
 import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
-// import SearchButton from 'components/SearchBar/SearchButton';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
   const adverts = useSelector(state => selectAllAdverts(state));
-  const limit = 12;
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
+  const limit = 12;
 
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {
     setPage(prevState => prevState + 1);
-    // setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+    if (page > 1) {
+      setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+    }
   };
 
   useEffect(() => {
@@ -30,32 +29,22 @@ const CatalogPage = () => {
   }, [dispatch, page]);
 
   useEffect(() => {
-    setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
-  }, [adverts]);
-
-  // useEffect(() => {
-  //   setAllAdverts(adverts);
-  // }, [adverts]);
-
-  // useEffect(() => {
-  //   dispatch(getAllAdverts({ limit: limit, page: page })).then(() => {
-  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
-  //   });
-  // }, [dispatch, page]);
+    if (page === 1) {
+      setAllAdverts(adverts);
+    }
+  }, [adverts, page]);
 
   return (
     <Container>
-      <PageWrapper>
-        {adverts && (
-          <>
-            <SearchBar />
-            {/* <SearchBar onSubmit={formSubmit} /> */}
-            <AdvertList adverts={allAdverts} />
-            <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
-          </>
-        )}
-        {isOpenModal && <ModalCar />}
-      </PageWrapper>
+      {adverts && (
+        <>
+          <SearchBar />
+          {/* <SearchBar onSubmit={formSubmit} /> */}
+          <AdvertList adverts={allAdverts} />
+          <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
+        </>
+      )}
+      {isOpenModal && <ModalCar />}
     </Container>
   );
 };

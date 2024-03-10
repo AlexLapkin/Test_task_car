@@ -16,12 +16,6 @@ export const ItemLink = styled(NavLink)`
   /* border: 1px solid blue; */
 `;
 
-//  .mov_title:hover {
-//     color: blue;
-//    text-decoration: underline;
-//    transform: scale(1.03);
-//    }
-
 export const ItemImg = styled.img`
   display: block;
   /* margin-top: 25px; */
@@ -34,6 +28,16 @@ export const ItemImg = styled.img`
 
 export const ItemText = styled.p`
   font-size: 16px;
+  /* padding-left: 30px;
+    padding-right: 30px; */
+  /* text-align: justify; */
+  //   border: 1px solid red;
+`;
+
+export const ItemTextAdd = styled.p`
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(18, 20, 23, 0.5);
   /* padding-left: 30px;
     padding-right: 30px; */
   /* text-align: justify; */

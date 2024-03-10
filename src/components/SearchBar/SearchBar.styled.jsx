@@ -13,8 +13,6 @@ export const Wrapper = styled.div`
   //   @media screen and (min-width: 1440px)
 `;
 
-// import { DebounceInput } from 'react-debounce-input';
-
 export const SearchSelectBrand = styled.select`
   //   display: flex;
   width: 224px;

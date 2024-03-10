@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 
-import { StyledModal, CarPhoto, ButtonRent } from './ModalCar.styled';
+import { StyledModal, CarPhoto, ButtonRent, TextAdd } from './ModalCar.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from 'redux/modal/modalSlice';
 import { selectModalData } from 'redux/modal/modal.selectors';
@@ -42,28 +42,27 @@ const ModalCar = () => {
           <h3>
             {modalData.make} {modalData.model}, {modalData.year}
           </h3>
-          <p>
+          <TextAdd>
             {modalData.address.slice(modalData.address.indexOf(',') + 2)} id:{' '}
             {modalData.id} Year: {modalData.year} Type: {modalData.type}
-          </p>
+          </TextAdd>
           <p>
             Fuel Consumption: {modalData.fuelConsumption} Engine Size:{' '}
             {modalData.engineSize}
           </p>
 
           <p>{modalData.description}</p>
-          <p>
-            Accessories and functionalities: {modalData.accessories}
+          <p>Accessories and functionalities:</p>
+          <TextAdd>
+            {modalData.accessories}
             {modalData.functionalities}
-          </p>
+          </TextAdd>
           <p>Rental conditions: Minimum age:25 Valid driver's license</p>
           <p></p>
           <p>
             Security deposite required Mileage: {modalData.mileage} Price:{' '}
             {modalData.rentalPrice}
           </p>
-          {/* <p>Mileage: {modalData.mileage}</p> */}
-          {/* <p>Price: {modalData.rentalPrice}</p> */}
           <ButtonRent>Rental car</ButtonRent>
         </div>
       </div>

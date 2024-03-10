@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from 'redux/modal/modalSlice';
 import {
   ItemLi,
-  ItemLink,
   ItemImg,
   ItemText,
+  ItemTextAdd,
   ItemTextCont,
   ItemTextContAdd,
   ItemButtonLearnMore,
@@ -19,9 +17,8 @@ import {
   selectAllAdverts,
 } from 'redux/adverts/adverts.selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/adverts/advertSlice';
-// import { getAdvertById } from 'redux/adverts/adverts.operations';
 import icons from './../../images/icons.svg';
-import { nanoid } from 'nanoid';
+// import { nanoid } from 'nanoid';
 
 const AdvertListItem = ({
   make,
@@ -38,9 +35,9 @@ const AdvertListItem = ({
   accessories,
   functionalities,
   rentalConditions,
+  rentalCompany,
   mileage,
 }) => {
-  // const location = useLocation();
   const dispatch = useDispatch();
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
   const adverts = useSelector(state => selectAllAdverts(state));
@@ -59,7 +56,6 @@ const AdvertListItem = ({
 
   return (
     <ItemLi key={id}>
-      {/* <ItemLink to={`/adverts/${id}`} state={{ from: location }}> */}
       <ItemImg src={img} alt="car" />
       <FavoriteBtn type="button" onClick={() => handleClickToFavorite()}>
         <FavoriteIcon
@@ -77,20 +73,17 @@ const AdvertListItem = ({
         </ItemTextContAdd>
 
         <ItemTextContAdd>
-          <ItemText>{make}</ItemText>
-          <ItemText>{rentalPrice}</ItemText>
-          <ItemText>{rentalPrice}</ItemText>
-          <ItemText>{rentalPrice}</ItemText>
+          <ItemTextAdd>{address.slice(address.indexOf(',') + 2)}</ItemTextAdd>
+          <ItemTextAdd>{rentalCompany}</ItemTextAdd>
         </ItemTextContAdd>
         <ItemTextContAdd>
-          <ItemText>{type}</ItemText>
-          <ItemText>{model}</ItemText>
-          <ItemText>{id}</ItemText>
-          <ItemText>{rentalPrice}</ItemText>
+          <ItemTextAdd>{type}</ItemTextAdd>
+          <ItemTextAdd>{make}</ItemTextAdd>
+          <ItemTextAdd>{id}</ItemTextAdd>
+          {/* <ItemTextAdd>{accessories[0]}</ItemTextAdd> */}
         </ItemTextContAdd>
       </ItemTextCont>
-      {/* <p className={css.mov_text}>{model}</p> */}
-      {/* </ItemLink> */}
+
       <ItemButtonLearnMore
         onClick={() =>
           dispatch(

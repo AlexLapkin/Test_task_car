@@ -6,20 +6,17 @@ export const Header = styled.header`
   padding-top: 10px;
   padding-bottom: 10px;
   background-color: rgb(131, 158, 194);
-  //   border: 1px solid red;
 `;
 
 export const HeaderLink = styled(NavLink)`
-  margin-left: 60px;
+  // margin-left: 60px;
   text-decoration: none;
   font-size: 18px;
   color: white;
-  //   border: 1px solid blue;
 `;
 
 export const HeaderNav = styled.nav`
   display: flex;
   justify-content: center;
   gap: 60px;
-  //   border: 1px solid blue;
 `;

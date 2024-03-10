@@ -12,15 +12,10 @@ import { Wrapper, Wrap, WrapCont } from './SearchBar.styled';
 import optionsBrand from './../../helpers/makes.json';
 
 const SearchBar = () => {
-  // Создаем состояние для хранения выбранного значения
   const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
-
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
-
-  // Массив данных для выпадающего списка
   const options = ['Option 1', 'Option 2', 'Option 3'];
 
-  // Обработчик изменения значения в выпадающем списке
   const handleSelectBrandChange = e => {
     setSelectedValueCarBrand(e.target.value);
   };

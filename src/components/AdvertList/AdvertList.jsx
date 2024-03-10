@@ -1,12 +1,10 @@
 import React from 'react';
-import css from './AdvertList.module.css';
+import { AdvertUl } from './AdvertList.styled';
 import AdvertListItem from 'components/AdvertListItem/AdvertListItem';
-// import PropTypes from 'prop-types';
 
 const AdvertList = ({ adverts }) => {
-  // console.log(adverts);
   return (
-    <ul className={css.mov_ul_title}>
+    <AdvertUl>
       {adverts &&
         adverts.map(
           ({
@@ -24,6 +22,7 @@ const AdvertList = ({ adverts }) => {
             accessories,
             functionalities,
             rentalConditions,
+            rentalCompany,
             mileage,
           }) => (
             <AdvertListItem
@@ -41,17 +40,14 @@ const AdvertList = ({ adverts }) => {
               accessories={accessories}
               functionalities={functionalities}
               rentalConditions={rentalConditions}
+              rentalCompany={rentalCompany}
               mileage={mileage}
               img={img}
             />
           )
         )}
-    </ul>
+    </AdvertUl>
   );
 };
-
-// MovieList.propTypes = {
-//   movieList: PropTypes.array,
-// };
 
 export default AdvertList;

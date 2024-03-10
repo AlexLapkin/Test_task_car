@@ -1,7 +1,5 @@
 import { Outlet } from 'react-router-dom';
 import React, { Suspense } from 'react';
-import { NavLink } from 'react-router-dom';
-// import css from './SharedLayout.module.css';
 import Loader from 'components/Loader/Loader';
 import { Header, HeaderLink, HeaderNav } from './SharedLayout.styled';
 

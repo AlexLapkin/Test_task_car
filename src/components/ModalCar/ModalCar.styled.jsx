@@ -1,9 +1,7 @@
-// import styled from 'styled-components';
 import styled from '@emotion/styled';
 
 export const StyledModal = styled.div`
-  // position: fixed;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
@@ -54,4 +52,11 @@ export const ButtonRent = styled.button`
   border: none;
   margin-bottom: 40px;
   margin-top: 24px;
+`;
+
+export const TextAdd = styled.p`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(18, 20, 23, 0.5);
 `;
