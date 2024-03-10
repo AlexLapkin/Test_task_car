@@ -10,7 +10,6 @@ import { PageWrapper } from './CatalogPage.styled';
 import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
 // import SearchButton from 'components/SearchBar/SearchButton';
-// import adverts from './../../helpers/adsCars.json';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
@@ -35,21 +34,15 @@ const CatalogPage = () => {
   }, [adverts]);
 
   // useEffect(() => {
-  //   const fetchData = async () => {
-  //     await dispatch(getAllAdverts({ limit: limit, page: page }));
-  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
-  //   };
-  //   fetchData();
-  // }, [dispatch, page]);
+  //   setAllAdverts(adverts);
+  // }, [adverts]);
 
   // useEffect(() => {
-  //   dispatch(getAllAdverts({ limit: limit, page: page })).then(() =>
-  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts])
-  //   );
+  //   dispatch(getAllAdverts({ limit: limit, page: page })).then(() => {
+  //     setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
+  //   });
   // }, [dispatch, page]);
 
-  console.log(allAdverts);
-  //
   return (
     <Container>
       <PageWrapper>

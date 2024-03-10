@@ -21,7 +21,7 @@ import {
 import { addToFavorites, removeFromFavorites } from 'redux/adverts/advertSlice';
 // import { getAdvertById } from 'redux/adverts/adverts.operations';
 import icons from './../../images/icons.svg';
-// import css from './AdvertListItem.module.css';
+import { nanoid } from 'nanoid';
 
 const AdvertListItem = ({
   make,
@@ -45,12 +45,12 @@ const AdvertListItem = ({
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
   const adverts = useSelector(state => selectAllAdverts(state));
 
-  const handleClickToFavorite = item => {
+  const handleClickToFavorite = () => {
     const favoriteItem = adverts.find(item => item.id === id);
 
-    const isFavorite = false;
+    const isFavorite = favoriteAdverts.includes(favoriteItem);
     if (isFavorite) {
-      dispatch(removeFromFavorites());
+      dispatch(removeFromFavorites(favoriteItem));
       return;
     }
     dispatch(addToFavorites(favoriteItem));

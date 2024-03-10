@@ -19,7 +19,7 @@ export const HeaderLink = styled(NavLink)`
 
 export const HeaderNav = styled.nav`
   display: flex;
-  //   justify-content: center;
-  //   gap: 60px;
+  justify-content: center;
+  gap: 60px;
   //   border: 1px solid blue;
 `;

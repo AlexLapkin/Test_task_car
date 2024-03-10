@@ -25,6 +25,7 @@ const advertsSlice = createSlice({
       state.favoriteAdverts = state.favoriteAdverts.filter(
         advert => advert.id !== payload.id
       );
+      console.log(payload);
     },
   },
   extraReducers: builder =>
