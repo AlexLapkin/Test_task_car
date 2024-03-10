@@ -1,9 +1,17 @@
 import React, { useEffect } from 'react';
 
-import { StyledModal, CarPhoto, ButtonRent, TextAdd } from './ModalCar.styled';
+import {
+  StyledModal,
+  CarPhoto,
+  ButtonRent,
+  TextAdd,
+  IconClose,
+  BtnClose,
+} from './ModalCar.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeModal } from 'redux/modal/modalSlice';
 import { selectModalData } from 'redux/modal/modal.selectors';
+import icons from './../../images/icons.svg';
 
 const ModalCar = () => {
   const modalData = useSelector(selectModalData);
@@ -34,9 +42,11 @@ const ModalCar = () => {
   return (
     <StyledModal onClick={handleOverayClick}>
       <div className="modal">
-        <button onClick={() => dispatch(closeModal())} className="closeBtn">
-          ❌
-        </button>
+        <BtnClose onClick={() => dispatch(closeModal())} className="closeBtn">
+          <IconClose>
+            <use href={icons + '#icon-close'} />
+          </IconClose>
+        </BtnClose>
         <div>
           <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
           <h3>
@@ -63,7 +73,7 @@ const ModalCar = () => {
             Security deposite required Mileage: {modalData.mileage} Price:{' '}
             {modalData.rentalPrice}
           </p>
-          <ButtonRent>Rental car</ButtonRent>
+          <ButtonRent href="tel:+380730000000">Rental car</ButtonRent>
         </div>
       </div>
     </StyledModal>

@@ -42,16 +42,24 @@ export const CarPhoto = styled.img`
   border-radius: 14px;
 `;
 
-export const ButtonRent = styled.button`
+export const ButtonRent = styled.a`
   display: block;
   width: 168px;
-  height: 44px;
+  height: 40px;
   border-radius: 12px;
   background-color: #3470ff;
+  text-decoration: none;
+  text-align: center;
+  // padding-left: 50px;
+  // padding-right: 50px;
+  padding-top: 12px;
   color: white;
   border: none;
-  margin-bottom: 40px;
-  margin-top: 24px;
+  margin-bottom: 20px;
+  margin-top: 35px;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 143%;
 `;
 
 export const TextAdd = styled.p`
@@ -59,4 +67,18 @@ export const TextAdd = styled.p`
   font-size: 12px;
   line-height: 150%;
   color: rgba(18, 20, 23, 0.5);
+`;
+
+export const IconClose = styled.svg`
+  width: 18px;
+  height: 18px;
+  stroke: black;
+  fill: none;
+`;
+
+export const BtnClose = styled.button`
+  width: 24px;
+  height: 24px;
+  background-color: white;
+  border: none;
 `;
