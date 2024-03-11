@@ -4,44 +4,30 @@ import { NavLink } from 'react-router-dom';
 export const ItemLink = styled(NavLink)`
   display: flex;
   flex-direction: column;
-  /*--justify-content: center;--*/
   align-items: center;
   text-decoration: none;
   color: rgb(14, 11, 11);
   font-weight: 500;
   height: 354px;
   border-radius: 10px;
-  /* box-shadow: 
-    0px 1px 10px 0px rgba(0, 0, 0, 0.3);  */
-  /* border: 1px solid blue; */
 `;
 
 export const ItemImg = styled.img`
   display: block;
-  /* margin-top: 25px; */
   width: 274px;
   height: 268px;
   border-radius: 14px;
   object-fit: cover;
-  /* border: 1px solid red; */
 `;
 
 export const ItemText = styled.p`
   font-size: 16px;
-  /* padding-left: 30px;
-    padding-right: 30px; */
-  /* text-align: justify; */
-  //   border: 1px solid red;
 `;
 
 export const ItemTextAdd = styled.p`
   font-weight: 400;
   font-size: 12px;
   color: rgba(18, 20, 23, 0.5);
-  /* padding-left: 30px;
-    padding-right: 30px; */
-  /* text-align: justify; */
-  //   border: 1px solid red;
 `;
 
 export const ItemTextCont = styled.div`
@@ -53,7 +39,6 @@ export const ItemTextCont = styled.div`
   margin-top: 14px;
   padding-top: 0;
   padding-bottom: 0;
-  //   border: 1px solid blue;
 `;
 
 export const ItemTextContAdd = styled.div`
@@ -61,7 +46,6 @@ export const ItemTextContAdd = styled.div`
   height: 24px;
   align-items: center;
   justify-content: space-between;
-  /* border: 1px solid green; */
 `;
 
 export const ItemLi = styled.li`
@@ -72,7 +56,6 @@ export const ItemLi = styled.li`
   text-align: center;
   width: 274px;
   height: 426px;
-  /* border: 1px solid green; */
 `;
 
 export const ItemButtonLearnMore = styled.button`
@@ -96,8 +79,7 @@ export const FavoriteBtn = styled.button`
   background: var(--clr-brand-blue-lt);
   border: none;
   outline: none;
-  z-index: 2;
-  //   border: 1px solid red;
+  // z-index: 2;
 
   &:hover svg {
     scale: 1.05;

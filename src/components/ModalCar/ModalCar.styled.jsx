@@ -8,8 +8,7 @@ export const StyledModal = styled.div`
   left: 0;
   background-color: ${props =>
     props.specialLook ? 'rgba(255, 0, 0, 0.5)' : 'rgba(0, 0, 0, 0.5)'};
-  /* width: 100vw;
-     height: 100vh; */
+
   &:hover {
     cursor: pointer;
   }
@@ -50,8 +49,6 @@ export const ButtonRent = styled.a`
   background-color: #3470ff;
   text-decoration: none;
   text-align: center;
-  // padding-left: 50px;
-  // padding-right: 50px;
   padding-top: 12px;
   color: white;
   border: none;
