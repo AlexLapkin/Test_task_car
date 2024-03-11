@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { openModal } from 'redux/modal/modalSlice';
 import {
@@ -10,7 +10,8 @@ import {
   ItemTextContAdd,
   ItemButtonLearnMore,
   FavoriteBtn,
-  FavoriteIcon,
+  AddFavoriteIcon,
+  RemFavoriteIcon,
 } from './AdvertListItem.styled';
 import {
   selectFavoriteAdverts,
@@ -38,6 +39,7 @@ const AdvertListItem = ({
   mileage,
 }) => {
   const dispatch = useDispatch();
+  const [isToFav, setIsToFav] = useState(false);
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
   const allAdverts = useSelector(state => selectAllAdverts(state));
 
@@ -46,8 +48,10 @@ const AdvertListItem = ({
 
     const isFavorite = favoriteAdverts.some(item => item.id === id);
     if (isFavorite) {
+      setIsToFav(false);
       dispatch(removeFromFavorites(favoriteItem));
     } else {
+      setIsToFav(true);
       dispatch(addToFavorites(favoriteItem));
     }
     return isFavorite;
@@ -57,9 +61,15 @@ const AdvertListItem = ({
     <ItemLi key={id}>
       <ItemImg src={img} alt="car" />
       <FavoriteBtn type="button" onClick={() => handleClickToFavorite()}>
-        <FavoriteIcon>
-          <use href={icons + '#icon-heart'} />
-        </FavoriteIcon>
+        {isToFav ? (
+          <AddFavoriteIcon>
+            <use href={icons + '#icon-heart'} />
+          </AddFavoriteIcon>
+        ) : (
+          <RemFavoriteIcon>
+            <use href={icons + '#icon-heart'} />
+          </RemFavoriteIcon>
+        )}
       </FavoriteBtn>
       <ItemTextCont>
         <ItemTextContAdd>

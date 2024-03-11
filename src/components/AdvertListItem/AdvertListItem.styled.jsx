@@ -104,11 +104,22 @@ export const FavoriteBtn = styled.button`
   }
 `;
 
-export const FavoriteIcon = styled.svg`
+export const AddFavoriteIcon = styled.svg`
   display: flex;
   justify-content: center;
   align-items: center;
+  fill: #3470ff;
+  stroke: #3470ff;
+  width: 18px;
+  height: 18px;
+`;
 
+export const RemFavoriteIcon = styled.svg`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: #fff;
+  fill: none;
   width: 18px;
   height: 18px;
 `;
