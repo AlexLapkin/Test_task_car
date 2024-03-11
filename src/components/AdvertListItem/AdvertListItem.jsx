@@ -18,7 +18,6 @@ import {
 } from 'redux/adverts/adverts.selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/adverts/advertSlice';
 import icons from './../../images/icons.svg';
-// import { nanoid } from 'nanoid';
 
 const AdvertListItem = ({
   make,
@@ -40,27 +39,25 @@ const AdvertListItem = ({
 }) => {
   const dispatch = useDispatch();
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
-  const adverts = useSelector(state => selectAllAdverts(state));
+  const allAdverts = useSelector(state => selectAllAdverts(state));
 
-  const handleClickToFavorite = () => {
-    const favoriteItem = adverts.find(item => item.id === id);
+  const handleClickToFavorite = item => {
+    const favoriteItem = allAdverts.find(item => item.id === id);
 
-    const isFavorite = favoriteAdverts.includes(favoriteItem);
+    const isFavorite = favoriteAdverts.some(item => item.id === id);
     if (isFavorite) {
       dispatch(removeFromFavorites(favoriteItem));
-      return;
+    } else {
+      dispatch(addToFavorites(favoriteItem));
     }
-    dispatch(addToFavorites(favoriteItem));
-    console.log(favoriteAdverts);
+    return isFavorite;
   };
 
   return (
     <ItemLi key={id}>
       <ItemImg src={img} alt="car" />
       <FavoriteBtn type="button" onClick={() => handleClickToFavorite()}>
-        <FavoriteIcon
-        // isFavorite={handleIsFavorite(favorites, item)}
-        >
+        <FavoriteIcon>
           <use href={icons + '#icon-heart'} />
         </FavoriteIcon>
       </FavoriteBtn>

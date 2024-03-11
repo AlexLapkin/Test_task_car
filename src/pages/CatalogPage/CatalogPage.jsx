@@ -1,6 +1,9 @@
 import AdvertList from '../../components/AdvertList/AdvertList';
-import { getAllAdverts } from '../../redux/adverts/adverts.operations';
-import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
+import {
+  getAllAdverts,
+  getAllOfAdverts,
+} from '../../redux/adverts/adverts.operations';
+import { selectAdverts } from '../../redux/adverts/adverts.selectors';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '../../components/Container/Container';
@@ -10,7 +13,7 @@ import ModalCar from 'components/ModalCar/ModalCar';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
-  const adverts = useSelector(state => selectAllAdverts(state));
+  const adverts = useSelector(state => selectAdverts(state));
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
   const limit = 12;
@@ -19,6 +22,7 @@ const CatalogPage = () => {
 
   const onClickLoadMore = () => {
     setPage(prevState => prevState + 1);
+
     if (page > 1) {
       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
     }
@@ -33,6 +37,12 @@ const CatalogPage = () => {
       setAllAdverts(adverts);
     }
   }, [adverts, page]);
+
+  useEffect(() => {
+    if (allAdverts.length === 0) {
+      dispatch(getAllOfAdverts({ limit: limit }));
+    }
+  }, [dispatch, allAdverts]);
 
   return (
     <Container>

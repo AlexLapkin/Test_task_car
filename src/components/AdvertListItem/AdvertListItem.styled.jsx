@@ -108,12 +108,6 @@ export const FavoriteIcon = styled.svg`
   display: flex;
   justify-content: center;
   align-items: center;
-  stroke: ${props => {
-    return props.isFavorite ? '#3470FF' : '#fff';
-  }};
-  fill: ${props => {
-    return props.isFavorite ? '#3470FF' : 'none';
-  }};
 
   width: 18px;
   height: 18px;

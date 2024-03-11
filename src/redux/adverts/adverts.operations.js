@@ -20,3 +20,20 @@ export const getAllAdverts = createAsyncThunk(
     }
   }
 );
+
+export const getAllOfAdverts = createAsyncThunk(
+  'adverts/getOfAll',
+  async ({ limit }, thunkAPI) => {
+    const searchParams = {
+      params: {
+        limit,
+      },
+    };
+    try {
+      const { data } = await axios.get('/adverts', searchParams);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

@@ -1,8 +1,9 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getAllAdverts } from './adverts.operations';
+import { getAllAdverts, getAllOfAdverts } from './adverts.operations';
 
 const initialState = {
   adverts: [],
+  allAdverts: [],
   favoriteAdverts: [],
   isLoading: false,
   error: null,
@@ -31,6 +32,10 @@ const advertsSlice = createSlice({
       .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.adverts = payload;
+      })
+      .addCase(getAllOfAdverts.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.allAdverts = payload;
       })
 
       .addMatcher(isAnyOf(getAllAdverts.pending), state => {
