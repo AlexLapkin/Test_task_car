@@ -19,24 +19,23 @@ export const SearchSelectBrand = styled.select`
   font-size: 18px;
   line-height: 111%;
   border: none;
+  color: rgba(18, 20, 23, 0.2);
   background-color: #f7f7fb;
-//   -webkit-appearance:padding: 10px;
+  //   -webkit-appearance:padding: 10px;
+  
   }
-
-  //   @media screen and (min-width: 1440px)
 `;
 
 export const SearchSelectPrice = styled.select`
-  //   display: flex;
   width: 125px;
   height: 48px;
   border-radius: 14px;
   padding: 14px 18px;
-  //   border: 1px solid blue;
   background-color: #f7f7fb;
   font-weight: 500;
   font-size: 18px;
   line-height: 111%;
+  color: rgba(18, 20, 23, 0.2);
   border: none;
 `;
 
