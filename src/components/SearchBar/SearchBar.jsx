@@ -14,7 +14,7 @@ import optionsBrand from './../../helpers/makes.json';
 const SearchBar = () => {
   const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
-  const options = ['Option 1', 'Option 2', 'Option 3'];
+  const options = ['10$', '20$', '30$', '40$', '50$'];
 
   const handleSelectBrandChange = e => {
     setSelectedValueCarBrand(e.target.value);
