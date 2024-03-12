@@ -70,7 +70,6 @@ export const ItemButtonLearnMore = styled.button`
 
 export const FavoriteBtn = styled.button`
   position: absolute;
-  // position: relative;
   top: 14px;
   right: 14px;
   display: flex;
@@ -79,7 +78,6 @@ export const FavoriteBtn = styled.button`
   background: var(--clr-brand-blue-lt);
   border: none;
   outline: none;
-  // z-index: 2;
 
   &:hover svg {
     scale: 1.05;

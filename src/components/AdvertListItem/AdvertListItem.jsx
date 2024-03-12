@@ -40,16 +40,17 @@ const AdvertListItem = ({
   mileage,
 }) => {
   const dispatch = useDispatch();
-  const [isToFav, setIsToFav] = useState(false);
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
   const allAdverts = useSelector(state => selectAllAdverts(state));
+  const isToFav = useSelector(state =>
+    state.advertStore.favoriteAdverts.some(item => item.id === id)
+  );
 
   const handleClickToFavorite = item => {
     const favoriteItem = allAdverts.find(item => item.id === id);
 
     const isFavorite = favoriteAdverts.some(item => item.id === id);
     if (isFavorite) {
-      setIsToFav(false);
       dispatch(
         removeFromFavorites(favoriteItem),
         Notiflix.Notify.info(
@@ -61,7 +62,6 @@ const AdvertListItem = ({
         )
       );
     } else {
-      setIsToFav(true);
       dispatch(
         addToFavorites(favoriteItem),
         Notiflix.Notify.success(`Advert ${make} ${model}  add to Favorites!`, {
