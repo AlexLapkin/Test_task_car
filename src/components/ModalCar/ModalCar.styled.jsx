@@ -15,7 +15,7 @@ export const StyledModal = styled.div`
   .modal {
     padding: 40px;
     width: 461px;
-    height: 672px;
+    // height: 672px;
     background-color: white;
     border-radius: 24px;
     position: absolute;
@@ -42,18 +42,19 @@ export const CarPhoto = styled.img`
 `;
 
 export const ButtonRent = styled.a`
-  display: block;
+  display: flex;
   width: 168px;
-  height: 40px;
+  height: 44px;
   border-radius: 12px;
   background-color: #3470ff;
   text-decoration: none;
   text-align: center;
-  padding-top: 12px;
+  align-items: center;
+  justify-content: center;
   color: white;
   border: none;
-  margin-bottom: 20px;
-  margin-top: 35px;
+  margin-top: 24px;
+  font-family: 'Manrope', sans-serif;
   font-weight: 600;
   font-size: 14px;
   line-height: 143%;
