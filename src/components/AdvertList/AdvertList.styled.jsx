@@ -7,4 +7,5 @@ export const AdvertUl = styled.ul`
   margin-top: 0;
   justify-content: center;
   list-style: none;
+  padding-inline-start: 0px;
 `;

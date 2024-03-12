@@ -10,8 +10,4 @@ export const Button = styled.button`
   background-color: #3470ff;
   border-color: transparent;
   margin-top: 26px;
-
-  //   border: 1px solid blue;
-
-  //   @media screen and (min-width: 1440px)
 `;

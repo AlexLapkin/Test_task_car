@@ -6,6 +6,8 @@ export const Wrapper = styled.div`
   height: 74px;
   margin-top: 50px;
   margin-bottom: 50px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 export const SearchSelectBrand = styled.select`

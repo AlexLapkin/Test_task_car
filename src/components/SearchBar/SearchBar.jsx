@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Container } from './../../components/Container/Container';
 import {
   SearchSelectBrand,
   SearchSelectPrice,
@@ -25,59 +24,57 @@ const SearchBar = () => {
   };
 
   return (
-    <Container>
-      <Wrapper>
-        <Wrap>
-          <SearchSelectText>Car brand</SearchSelectText>
-          <SearchSelectBrand
-            value={selectedValueCarBrand}
-            onChange={handleSelectBrandChange}
-          >
-            <option value="">Enter the text</option>
-            {optionsBrand.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-          </SearchSelectBrand>
-        </Wrap>
-        <Wrap>
-          <SearchSelectText>Price/ 1hour</SearchSelectText>
-          <SearchSelectPrice
-            value={selectedValueCarPrice}
-            onChange={handleSelectPriceChange}
-          >
-            <option value="">To $</option>
-            {options.map((option, index) => (
-              <option key={index} value={option}>
-                {option}
-              </option>
-            ))}
-          </SearchSelectPrice>
-        </Wrap>
+    <Wrapper>
+      <Wrap>
+        <SearchSelectText>Car brand</SearchSelectText>
+        <SearchSelectBrand
+          value={selectedValueCarBrand}
+          onChange={handleSelectBrandChange}
+        >
+          <option value="">Enter the text</option>
+          {optionsBrand.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </SearchSelectBrand>
+      </Wrap>
+      <Wrap>
+        <SearchSelectText>Price/ 1hour</SearchSelectText>
+        <SearchSelectPrice
+          value={selectedValueCarPrice}
+          onChange={handleSelectPriceChange}
+        >
+          <option value="">To $</option>
+          {options.map((option, index) => (
+            <option key={index} value={option}>
+              {option}
+            </option>
+          ))}
+        </SearchSelectPrice>
+      </Wrap>
 
-        <Wrap>
-          <SearchSelectText>Price/ 1hour</SearchSelectText>
-          <WrapCont>
-            <SearchInputMileageFrom
-              input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="From"
-            ></SearchInputMileageFrom>
-            <SearchInputMileageTo
-              input
-              type="text"
-              id="username"
-              name="username"
-              placeholder="To"
-            ></SearchInputMileageTo>
-          </WrapCont>
-        </Wrap>
-        <SearchButton />
-      </Wrapper>
-    </Container>
+      <Wrap>
+        <SearchSelectText>Price/ 1hour</SearchSelectText>
+        <WrapCont>
+          <SearchInputMileageFrom
+            input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="From"
+          ></SearchInputMileageFrom>
+          <SearchInputMileageTo
+            input
+            type="text"
+            id="username"
+            name="username"
+            placeholder="To"
+          ></SearchInputMileageTo>
+        </WrapCont>
+      </Wrap>
+      <SearchButton />
+    </Wrapper>
   );
 };
 
