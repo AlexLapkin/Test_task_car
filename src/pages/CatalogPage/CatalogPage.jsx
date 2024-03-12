@@ -10,6 +10,7 @@ import { Container } from '../../components/Container/Container';
 import SearchBar from 'components/SearchBar/SearchBar';
 import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
+// import { Loader } from './../../components/Loader/Loader';
 
 const CatalogPage = () => {
   const dispatch = useDispatch();
