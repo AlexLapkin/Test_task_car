@@ -66,6 +66,7 @@ export const ItemButtonLearnMore = styled.button`
   background-color: #3470ff;
   margin-top: 28px;
   border-color: transparent;
+  cursor: pointer;
 `;
 
 export const FavoriteBtn = styled.button`

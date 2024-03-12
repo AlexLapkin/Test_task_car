@@ -18,12 +18,14 @@ const CatalogPage = () => {
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
   // const [onClick, setOnClick] = useState(false);
+  // const page = useSelector(state => state.adverts.page);
+  console.log(page);
   const limit = 12;
 
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {
-    setPage(prevState => prevState + 1);
+    setPage(page + 1);
     if (page > 1) {
       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
     }
@@ -39,14 +41,9 @@ const CatalogPage = () => {
     }
   }, [adverts, page]);
 
-  // Получение всего списка коллекции - 36 элементов
   useEffect(() => {
-    if (allAdverts.length === 0) {
-      dispatch(getAllOfAdverts({ limit: limit }));
-    }
-  }, [dispatch, allAdverts]);
-
-  // console.log(allAdverts.length);
+    dispatch(getAllOfAdverts({ limit: limit, page: page }));
+  }, [dispatch, page]);
 
   return (
     <Container>

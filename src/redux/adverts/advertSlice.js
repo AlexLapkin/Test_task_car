@@ -16,6 +16,9 @@ const advertsSlice = createSlice({
   initialState,
   // Об'єкт редюсерів
   reducers: {
+    setPage: (state, { payload }) => {
+      state.page = payload;
+    },
     addToFavorites: (state, { payload }) => {
       state.isLoading = false;
       state.favoriteAdverts.push(payload);
