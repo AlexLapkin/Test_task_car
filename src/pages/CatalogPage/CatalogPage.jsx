@@ -17,12 +17,14 @@ const CatalogPage = () => {
   const adverts = useSelector(state => selectAdverts(state));
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
+  // const [onClick, setOnClick] = useState(false);
   const limit = 12;
 
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {
     setPage(prevState => prevState + 1);
+    console.log(page);
 
     if (page > 1) {
       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
@@ -39,20 +41,26 @@ const CatalogPage = () => {
     }
   }, [adverts, page]);
 
+  // Получение всего списка коллекции - 36 элементов
   useEffect(() => {
     if (allAdverts.length === 0) {
+      console.log(3);
       dispatch(getAllOfAdverts({ limit: limit }));
     }
   }, [dispatch, allAdverts]);
 
+  // console.log(allAdverts.length);
+
   return (
     <Container>
-      {adverts && (
+      {allAdverts && (
         <>
           <SearchBar />
           {/* <SearchBar onSubmit={formSubmit} /> */}
           <AdvertList adverts={allAdverts} />
-          <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
+          {allAdverts.length < 36 && (
+            <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
+          )}
         </>
       )}
       {isOpenModal && <ModalCar />}
