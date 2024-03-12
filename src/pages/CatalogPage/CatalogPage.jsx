@@ -24,8 +24,6 @@ const CatalogPage = () => {
 
   const onClickLoadMore = () => {
     setPage(prevState => prevState + 1);
-    console.log(page);
-
     if (page > 1) {
       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
     }
@@ -44,7 +42,6 @@ const CatalogPage = () => {
   // Получение всего списка коллекции - 36 элементов
   useEffect(() => {
     if (allAdverts.length === 0) {
-      console.log(3);
       dispatch(getAllOfAdverts({ limit: limit }));
     }
   }, [dispatch, allAdverts]);
