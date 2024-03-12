@@ -19,6 +19,7 @@ import {
 } from 'redux/adverts/adverts.selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/adverts/advertSlice';
 import icons from './../../images/icons.svg';
+import Notiflix from 'notiflix';
 
 const AdvertListItem = ({
   make,
@@ -49,10 +50,25 @@ const AdvertListItem = ({
     const isFavorite = favoriteAdverts.some(item => item.id === id);
     if (isFavorite) {
       setIsToFav(false);
-      dispatch(removeFromFavorites(favoriteItem));
+      dispatch(
+        removeFromFavorites(favoriteItem),
+        Notiflix.Notify.info(
+          `Advert ${make} ${model} is removed from Favorites!`,
+          {
+            position: 'right-top',
+            timeout: 3000,
+          }
+        )
+      );
     } else {
       setIsToFav(true);
-      dispatch(addToFavorites(favoriteItem));
+      dispatch(
+        addToFavorites(favoriteItem),
+        Notiflix.Notify.success(`Advert ${make} ${model}  add to Favorites!`, {
+          position: 'right-top',
+          timeout: 3000,
+        })
+      );
     }
     return isFavorite;
   };
