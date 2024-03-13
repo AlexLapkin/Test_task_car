@@ -4,10 +4,7 @@ import { openModal } from 'redux/modal/modalSlice';
 import {
   ItemLi,
   ItemImg,
-  ItemText,
-  ItemTextAdd,
   ItemTextCont,
-  ItemTextContAdd,
   ItemButtonLearnMore,
   FavoriteBtn,
   AddFavoriteIcon,
