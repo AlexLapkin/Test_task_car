@@ -1,4 +1,6 @@
-import styled from '@emotion/styled';
+// import styled from '@emotion/styled';
+import styled from 'styled-components';
+
 import { NavLink } from 'react-router-dom';
 
 export const ItemLink = styled(NavLink)`
@@ -20,6 +22,62 @@ export const ItemImg = styled.img`
   object-fit: cover;
 `;
 
+export const ItemTextCont = styled.div`
+  display: flex;
+  flex-direction: column;
+  // justify-content: space-between;
+  width: 274px;
+  height: 72px;
+  margin-top: 14px;
+  padding-top: 0;
+  padding-bottom: 0;
+  padding-left: 0px;
+
+  .subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .text_subtitle {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    color: #121417;
+    padding-left: 0px;
+    margin-top: 0px;
+  }
+
+  .ul_text {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    width: 270px;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1.5;
+    color: rgba(18, 20, 23, 0.5);
+    height: 40px;
+    padding-inline-start: 0px;
+    // overflow: hidden;
+    margin-bottom: 28px;
+    margin-top: -8px;
+    li {
+      position: relative;
+    }
+    li:not(:last-child)::after {
+      content: '|';
+      position: absolute;
+      right: -7px;
+    }
+  }
+
+  .li_text {
+    list-style: none;
+  }
+`;
+
 export const ItemText = styled.p`
   font-size: 16px;
 `;
@@ -28,18 +86,6 @@ export const ItemTextAdd = styled.p`
   font-weight: 400;
   font-size: 12px;
   color: rgba(18, 20, 23, 0.5);
-`;
-
-export const ItemTextCont = styled.ul`
-  display: flex;
-  flex-direction: column;
-  /* justify-content: space-between; */
-  width: 274px;
-  height: 72px;
-  margin-top: 14px;
-  padding-top: 0;
-  padding-bottom: 0;
-  padding-left: 0px;
 `;
 
 export const ItemTextContAdd = styled.div`
@@ -54,7 +100,7 @@ export const ItemLi = styled.li`
   border-radius: 10px;
   width: calc(25% - 20px); /* Ширина каждой карточки */
   margin-bottom: 50px; /* Пространство между карточками */
-  text-align: center;
+  // text-align: center;
   width: 274px;
   height: 426px;
 `;

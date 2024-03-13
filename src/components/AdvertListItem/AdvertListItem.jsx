@@ -88,22 +88,24 @@ const AdvertListItem = ({
         )}
       </FavoriteBtn>
       <ItemTextCont>
-        <ItemTextContAdd>
-          <ItemText>
-            {make} {model} {year} {rentalPrice}
-          </ItemText>
-        </ItemTextContAdd>
-
-        <ItemTextContAdd>
-          <ItemTextAdd>{address.slice(address.indexOf(',') + 2)}</ItemTextAdd>
-          <ItemTextAdd>{rentalCompany}</ItemTextAdd>
-        </ItemTextContAdd>
-        <ItemTextContAdd>
-          <ItemTextAdd>{type}</ItemTextAdd>
-          <ItemTextAdd>{make}</ItemTextAdd>
-          <ItemTextAdd>{id}</ItemTextAdd>
+        <div className="subtitle">
+          <h3 className="text_subtitle">
+            {make} {model}, {year}
+          </h3>
+          <h3 className="text_subtitle">{rentalPrice}</h3>
+        </div>
+        <ul className="ul_text">
+          <li className="li_text">{address.slice(address.indexOf(',') + 2)}</li>
+          <li className="li_text">{rentalCompany}</li>
+          <li className="li_text">Premium</li>
+          <li className="li_text">{type}</li>
+          <li className="li_text">{make}</li>
+          <li className="li_text">{id}</li>
+          <li className="li_text">
+            {accessories[0].split(' ').slice(0, 2).join(' ')}
+          </li>
           {/* <ItemTextAdd>{accessories[0]}</ItemTextAdd> */}
-        </ItemTextContAdd>
+        </ul>
       </ItemTextCont>
 
       <ItemButtonLearnMore
