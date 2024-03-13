@@ -2,9 +2,14 @@ import React, { useEffect } from 'react';
 
 import {
   StyledModal,
+  UlText,
   CarPhoto,
   ButtonRent,
+  TextTitle,
   TextAdd,
+  TextSubTitle,
+  TextSubTitleAdd,
+  TextAdded,
   IconClose,
   BtnClose,
 } from './ModalCar.styled';
@@ -49,30 +54,32 @@ const ModalCar = () => {
         </BtnClose>
         <div>
           <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
-          <h3>
-            {modalData.make} {modalData.model}, {modalData.year}
-          </h3>
-          <TextAdd>
-            {modalData.address.slice(modalData.address.indexOf(',') + 2)} id:{' '}
-            {modalData.id} Year: {modalData.year} Type: {modalData.type}
-          </TextAdd>
-          <p>
-            Fuel Consumption: {modalData.fuelConsumption} Engine Size:{' '}
-            {modalData.engineSize}
-          </p>
+          <UlText>
+            <TextTitle>
+              {modalData.make} {modalData.model}, {modalData.year}
+            </TextTitle>
+            <TextAdd>
+              {modalData.address.slice(modalData.address.indexOf(',') + 2)} id:{' '}
+              {modalData.id} Year: {modalData.year} Type: {modalData.type}
+            </TextAdd>
+            <TextAdd>
+              Fuel Consumption: {modalData.fuelConsumption} Engine Size:{' '}
+              {modalData.engineSize}
+            </TextAdd>
 
-          <p>{modalData.description}</p>
-          <p>Accessories and functionalities:</p>
-          <TextAdd>
-            {modalData.accessories}
-            {modalData.functionalities}
-          </TextAdd>
-          <p>Rental conditions: Minimum age:25 Valid driver's license</p>
-          <p></p>
-          <p>
-            Security deposite required Mileage: {modalData.mileage} Price:{' '}
-            {modalData.rentalPrice}
-          </p>
+            <TextSubTitle>{modalData.description}</TextSubTitle>
+            <TextSubTitleAdd>Accessories and functionalities:</TextSubTitleAdd>
+            <TextAdd>
+              {modalData.accessories}
+              {modalData.functionalities}
+            </TextAdd>
+            <TextSubTitleAdd>Rental conditions: </TextSubTitleAdd>
+            <TextAdded>Minimum age:25 Valid driver's license</TextAdded>
+            <TextAdded>
+              Security deposite required Mileage: {modalData.mileage} Price:{' '}
+              {modalData.rentalPrice}
+            </TextAdded>
+          </UlText>
           <ButtonRent href="tel:+380730000000">Rental car</ButtonRent>
         </div>
       </div>

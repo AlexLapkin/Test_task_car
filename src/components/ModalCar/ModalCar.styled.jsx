@@ -60,11 +60,57 @@ export const ButtonRent = styled.a`
   line-height: 143%;
 `;
 
-export const TextAdd = styled.p`
+export const UlText = styled.ul`
+  padding-left: 0px;
+`;
+
+export const TextTitle = styled.li`
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 133%;
+  color: #121417;
+  list-style: none;
+  margin-top: 14px;
+  margin-bottom: 8px;
+`;
+
+export const TextAdd = styled.li`
   font-weight: 400;
   font-size: 12px;
   line-height: 150%;
   color: rgba(18, 20, 23, 0.5);
+  list-style: none;
+  // margin-top: 4px;
+`;
+
+export const TextSubTitle = styled.li`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 143%;
+  color: #121417;
+  list-style: none;
+  margin-top: 14px;
+  margin-bottom: 24px;
+`;
+
+export const TextSubTitleAdd = styled.li`
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 143%;
+  color: #121417;
+  list-style: none;
+  margin-top: 24px;
+  margin-bottom: 8px;
+`;
+
+export const TextAdded = styled.li`
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: rgba(18, 20, 23, 0.5);
+  list-style: none;
+  margin-top: 15px;
+  padding-left: 14px;
 `;
 
 export const IconClose = styled.svg`
