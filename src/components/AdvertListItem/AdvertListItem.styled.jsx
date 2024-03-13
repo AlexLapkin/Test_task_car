@@ -30,7 +30,7 @@ export const ItemTextAdd = styled.p`
   color: rgba(18, 20, 23, 0.5);
 `;
 
-export const ItemTextCont = styled.div`
+export const ItemTextCont = styled.ul`
   display: flex;
   flex-direction: column;
   /* justify-content: space-between; */
@@ -39,13 +39,14 @@ export const ItemTextCont = styled.div`
   margin-top: 14px;
   padding-top: 0;
   padding-bottom: 0;
+  padding-left: 0px;
 `;
 
 export const ItemTextContAdd = styled.div`
   display: flex;
   height: 24px;
   align-items: center;
-  justify-content: space-between;
+  // justify-content: center;
 `;
 
 export const ItemLi = styled.li`

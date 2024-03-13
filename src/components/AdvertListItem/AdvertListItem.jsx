@@ -89,10 +89,9 @@ const AdvertListItem = ({
       </FavoriteBtn>
       <ItemTextCont>
         <ItemTextContAdd>
-          <ItemText>{make}</ItemText>
-          <ItemText>{model}</ItemText>
-          <ItemText>{year}</ItemText>
-          <ItemText>{rentalPrice}</ItemText>
+          <ItemText>
+            {make} {model} {year} {rentalPrice}
+          </ItemText>
         </ItemTextContAdd>
 
         <ItemTextContAdd>
