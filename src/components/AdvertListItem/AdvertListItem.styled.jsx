@@ -76,6 +76,9 @@ export const ItemTextCont = styled.div`
   .li_text {
     list-style: none;
   }
+  .text_span {
+    color: #3470ff;
+  }
 `;
 
 export const ItemText = styled.p`

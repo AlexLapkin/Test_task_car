@@ -90,21 +90,22 @@ const AdvertListItem = ({
       <ItemTextCont>
         <div className="subtitle">
           <h3 className="text_subtitle">
-            {make} {model}, {year}
+            {make} <span className="text_span">{model}</span>, {year}
           </h3>
           <h3 className="text_subtitle">{rentalPrice}</h3>
         </div>
         <ul className="ul_text">
           <li className="li_text">{address.slice(address.indexOf(',') + 2)}</li>
-          <li className="li_text">{rentalCompany}</li>
+          <li className="li_text">
+            {rentalCompany.split(' ').slice(0, 2).join(' ')}
+          </li>
           <li className="li_text">Premium</li>
           <li className="li_text">{type}</li>
           <li className="li_text">{make}</li>
           <li className="li_text">{id}</li>
           <li className="li_text">
-            {accessories[0].split(' ').slice(0, 2).join(' ')}
+            {accessories[0].split(' ').slice(0, 1).join(' ')}
           </li>
-          {/* <ItemTextAdd>{accessories[0]}</ItemTextAdd> */}
         </ul>
       </ItemTextCont>
 
