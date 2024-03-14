@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from './SearchButton.styled';
 
-const SearchButton = () => {
+const SearchButton = ({ onSearchByMake }) => {
   return (
     <>
-      <Button>Search</Button>
+      <Button onClick={onSearchByMake}>Search</Button>
     </>
   );
 };

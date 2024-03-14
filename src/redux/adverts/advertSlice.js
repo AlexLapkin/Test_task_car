@@ -29,28 +29,37 @@ const advertsSlice = createSlice({
         advert => advert.id !== payload.id
       );
     },
+    filterAdverts: (state, { payload }) => {
+      state.isLoading = false;
+      state.filteredAdverts = payload;
+
+      // console.log(state.filteredAdverts);
+      console.log(payload);
+    },
+
+    extraReducers: builder =>
+      builder
+        .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
+          state.isLoading = false;
+          state.adverts = payload;
+        })
+        .addCase(getAllOfAdverts.fulfilled, (state, { payload }) => {
+          state.isLoading = false;
+          state.allAdverts = payload;
+        })
+
+        .addMatcher(isAnyOf(getAllAdverts.pending), state => {
+          state.isLoading = true;
+        })
+
+        .addMatcher(isAnyOf(getAllAdverts.rejected), (state, { payload }) => {
+          state.isLoading = false;
+          state.error = payload;
+        }),
   },
-  extraReducers: builder =>
-    builder
-      .addCase(getAllAdverts.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.adverts = payload;
-      })
-      .addCase(getAllOfAdverts.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.allAdverts = payload;
-      })
-
-      .addMatcher(isAnyOf(getAllAdverts.pending), state => {
-        state.isLoading = true;
-      })
-
-      .addMatcher(isAnyOf(getAllAdverts.rejected), (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-      }),
 });
 
 // Генератори екшн-креаторс
 export const advertsReducer = advertsSlice.reducer;
-export const { addToFavorites, removeFromFavorites } = advertsSlice.actions;
+export const { addToFavorites, removeFromFavorites, filterAdverts } =
+  advertsSlice.actions;
