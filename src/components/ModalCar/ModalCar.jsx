@@ -3,14 +3,9 @@ import React, { useEffect } from 'react';
 import {
   StyledModal,
   UlText,
-  UlTextAdd,
   CarPhoto,
   ButtonRent,
-  TextTitle,
-  TextAdd,
-  TextSubTitle,
-  TextSubTitleAdd,
-  TextAdded,
+  Cont,
   ContAdd,
   IconClose,
   BtnClose,
@@ -55,9 +50,11 @@ const ModalCar = () => {
           </IconClose>
         </BtnClose>
         <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
-        <div>
+        <Cont>
           <h3 className="text_title">
-            {modalData.make} {modalData.model}, {modalData.year}
+            {modalData.make}{' '}
+            <span className="text_span">{modalData.model}</span>,{' '}
+            {modalData.year}
           </h3>
           <UlText>
             <li className="text_add">
@@ -98,18 +95,30 @@ const ModalCar = () => {
                 {modalData.functionalities[2]}
               </li>
             </ul>
-            <li className="text_subtitle_add">Rental conditions:</li>
-            <li className="text_added">
-              Minimum age:25 Valid driver's license
-            </li>
-            <li className="text_added">
-              Security deposite required Mileage: {modalData.mileage} Price:{' '}
-              {modalData.rentalPrice}
-            </li>
+
+            <p className="text_subtitle_add">Rental conditions:</p>
+            <ul className="ul_adding">
+              <li className="text_added">
+                Minimum age:<span className="text_added_span">25</span>
+              </li>
+              <li className="text_added">Valid driver's license</li>
+            </ul>
+            <ul className="ul_adding_one">
+              <li className="text_added">Security deposite required</li>
+              <li className="text_added">
+                Mileage:{' '}
+                <span className="text_added_span">{modalData.mileage}</span>
+              </li>
+              <li className="text_added">
+                {' '}
+                Price:{' '}
+                <span className="text_added_span">{modalData.rentalPrice}</span>
+              </li>
+            </ul>
           </ContAdd>
 
           <ButtonRent href="tel:+380730000000">Rental car</ButtonRent>
-        </div>
+        </Cont>
       </div>
     </StyledModal>
   );

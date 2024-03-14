@@ -15,7 +15,6 @@ export const StyledModal = styled.div`
   .modal {
     padding: 40px;
     width: 461px;
-    // height: 672px;
     background-color: white;
     border-radius: 24px;
     position: absolute;
@@ -61,13 +60,7 @@ export const ButtonRent = styled.a`
   line-height: 143%;
 `;
 
-export const UlText = styled.ul`
-  padding-left: 0px;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 14px;
-  width: 461px;
-
+export const Cont = styled.div`
   .text_title {
     font-weight: 500;
     font-size: 18px;
@@ -77,6 +70,17 @@ export const UlText = styled.ul`
     margin-top: 14px;
     margin-bottom: 8px;
   }
+  .text_span {
+    color: #3470ff;
+  }
+`;
+
+export const UlText = styled.ul`
+  padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  width: 461px;
 
   .text_add {
     font-weight: 400;
@@ -84,7 +88,6 @@ export const UlText = styled.ul`
     line-height: 150%;
     color: rgba(18, 20, 23, 0.5);
     list-style: none;
-    // margin-top: 4px;
     position: relative;
     list-style: none;
   }
@@ -97,14 +100,25 @@ export const UlText = styled.ul`
 `;
 
 export const ContAdd = styled.div`
-  .text_subtitle_add {
+  width: 461px;
+
+  .text_subtitle {
     font-weight: 400;
     font-size: 14px;
     line-height: 143%;
     color: #121417;
     list-style: none;
+    padding-left: 0px;
+  }
+  .text_subtitle_add {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    color: #121417;
+    list-style: none;
     margin-top: 14px;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
+    padding-left: 0px;
   }
   .ul_text_add {
     padding-left: 0px;
@@ -113,30 +127,50 @@ export const ContAdd = styled.div`
     gap: 4px 14px;
     width: 461px;
   }
-
-  .text_added {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 143%;
-    color: #121417;
-    list-style: none;
-    margin-top: 24px;
-    margin-bottom: 8px;
-  }
   .text_subtitle_added {
     font-weight: 400;
     font-size: 12px;
     line-height: 150%;
     color: rgba(18, 20, 23, 0.5);
     list-style: none;
-    // margin-top: 15px;
-    padding-left: 14px;
     position: relative;
   }
   .text_subtitle_added:not(:last-child)::after {
     content: '|';
     position: absolute;
     right: -7px;
+  }
+  .text_added {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 14px;
+    padding-right: 14px;
+    height: 32px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    border-radius: 35px;
+    color: #363535;
+    background-color: #f9f9f9;
+    list-style: none;
+  }
+  .text_added_span {
+    font-weight: 600;
+    color: #3470ff;
+  }
+  .ul_adding {
+    display: flex;
+    padding-left: 0px;
+    gap: 8px;
+    margin-top: 8px;
+    margin-bottom: 0px;
+  }
+  .ul_adding_one {
+    display: flex;
+    padding-left: 0px;
+    gap: 8px;
+    margin-top: 8px;
   }
 `;
 
