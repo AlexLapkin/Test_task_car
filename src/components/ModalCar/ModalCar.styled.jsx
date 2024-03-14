@@ -39,6 +39,7 @@ export const CarPhoto = styled.img`
   width: 461px;
   height: 248px;
   border-radius: 14px;
+  object-fit: cover;
 `;
 
 export const ButtonRent = styled.a`
