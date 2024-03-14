@@ -3,6 +3,7 @@ import React, { useEffect } from 'react';
 import {
   StyledModal,
   UlText,
+  UlTextAdd,
   CarPhoto,
   ButtonRent,
   TextTitle,
@@ -10,6 +11,7 @@ import {
   TextSubTitle,
   TextSubTitleAdd,
   TextAdded,
+  ContAdd,
   IconClose,
   BtnClose,
 } from './ModalCar.styled';
@@ -52,34 +54,60 @@ const ModalCar = () => {
             <use href={icons + '#icon-close'} />
           </IconClose>
         </BtnClose>
+        <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
         <div>
-          <CarPhoto src={modalData.img} alt="photo"></CarPhoto>
+          <h3 className="text_title">
+            {modalData.make} {modalData.model}, {modalData.year}
+          </h3>
           <UlText>
-            <TextTitle>
-              {modalData.make} {modalData.model}, {modalData.year}
-            </TextTitle>
-            <TextAdd>
-              {modalData.address.slice(modalData.address.indexOf(',') + 2)} id:{' '}
-              {modalData.id} Year: {modalData.year} Type: {modalData.type}
-            </TextAdd>
-            <TextAdd>
-              Fuel Consumption: {modalData.fuelConsumption} Engine Size:{' '}
+            <li className="text_add">
+              {modalData.address.slice(modalData.address.indexOf(',') + 2)}
+            </li>
+            <li className="text_add">id: {modalData.id}</li>
+            <li className="text_add">Year: {modalData.year}</li>
+            <li className="text_add">Type: {modalData.type}</li>
+            <li className="text_add">
+              Fuel Consumption: {modalData.fuelConsumption} Engine Size:
               {modalData.engineSize}
-            </TextAdd>
+            </li>
+          </UlText>
 
-            <TextSubTitle>{modalData.description}</TextSubTitle>
-            <TextSubTitleAdd>Accessories and functionalities:</TextSubTitleAdd>
-            <TextAdd>
-              {modalData.accessories}
-              {modalData.functionalities}
-            </TextAdd>
-            <TextSubTitleAdd>Rental conditions: </TextSubTitleAdd>
-            <TextAdded>Minimum age:25 Valid driver's license</TextAdded>
-            <TextAdded>
+          <ContAdd>
+            <p className="text_subtitle">{modalData.description}</p>
+            <p className="text_subtitle_add">
+              Accessories and functionalities:
+            </p>
+            <ul className="ul_text_add">
+              <li className="text_subtitle_added">
+                {modalData.accessories[0]}
+              </li>
+              <li className="text_subtitle_added">
+                {modalData.accessories[1]}{' '}
+              </li>
+              <li className="text_subtitle_added">
+                {' '}
+                {modalData.accessories[2]}
+              </li>
+              <li className="text_subtitle_added">
+                {modalData.functionalities[0]}
+              </li>
+              <li className="text_subtitle_added">
+                {modalData.functionalities[1]}
+              </li>
+              <li className="text_subtitle_added">
+                {modalData.functionalities[2]}
+              </li>
+            </ul>
+            <li className="text_subtitle_add">Rental conditions:</li>
+            <li className="text_added">
+              Minimum age:25 Valid driver's license
+            </li>
+            <li className="text_added">
               Security deposite required Mileage: {modalData.mileage} Price:{' '}
               {modalData.rentalPrice}
-            </TextAdded>
-          </UlText>
+            </li>
+          </ContAdd>
+
           <ButtonRent href="tel:+380730000000">Rental car</ButtonRent>
         </div>
       </div>

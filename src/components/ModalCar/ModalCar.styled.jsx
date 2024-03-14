@@ -63,55 +63,81 @@ export const ButtonRent = styled.a`
 
 export const UlText = styled.ul`
   padding-left: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  width: 461px;
+
+  .text_title {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 133 %;
+    color: #121417;
+    list-style: none;
+    margin-top: 14px;
+    margin-bottom: 8px;
+  }
+
+  .text_add {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: rgba(18, 20, 23, 0.5);
+    list-style: none;
+    // margin-top: 4px;
+    position: relative;
+    list-style: none;
+  }
+
+  .text_add:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -7px;
+  }
 `;
 
-export const TextTitle = styled.li`
-  font-weight: 500;
-  font-size: 18px;
-  line-height: 133%;
-  color: #121417;
-  list-style: none;
-  margin-top: 14px;
-  margin-bottom: 8px;
-`;
+export const ContAdd = styled.div`
+  .text_subtitle_add {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+    color: #121417;
+    list-style: none;
+    margin-top: 14px;
+    margin-bottom: 24px;
+  }
+  .ul_text_add {
+    padding-left: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 14px;
+    width: 461px;
+  }
 
-export const TextAdd = styled.li`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  color: rgba(18, 20, 23, 0.5);
-  list-style: none;
-  // margin-top: 4px;
-`;
-
-export const TextSubTitle = styled.li`
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 143%;
-  color: #121417;
-  list-style: none;
-  margin-top: 14px;
-  margin-bottom: 24px;
-`;
-
-export const TextSubTitleAdd = styled.li`
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 143%;
-  color: #121417;
-  list-style: none;
-  margin-top: 24px;
-  margin-bottom: 8px;
-`;
-
-export const TextAdded = styled.li`
-  font-weight: 400;
-  font-size: 12px;
-  line-height: 150%;
-  color: rgba(18, 20, 23, 0.5);
-  list-style: none;
-  margin-top: 15px;
-  padding-left: 14px;
+  .text_added {
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 143%;
+    color: #121417;
+    list-style: none;
+    margin-top: 24px;
+    margin-bottom: 8px;
+  }
+  .text_subtitle_added {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 150%;
+    color: rgba(18, 20, 23, 0.5);
+    list-style: none;
+    // margin-top: 15px;
+    padding-left: 14px;
+    position: relative;
+  }
+  .text_subtitle_added:not(:last-child)::after {
+    content: '|';
+    position: absolute;
+    right: -7px;
+  }
 `;
 
 export const IconClose = styled.svg`
