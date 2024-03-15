@@ -3,10 +3,7 @@ import {
   getAllAdverts,
   getAllOfAdverts,
 } from '../../redux/adverts/adverts.operations';
-import {
-  selectAdverts,
-  selectFilterAdverts,
-} from '../../redux/adverts/adverts.selectors';
+import { selectAdverts } from '../../redux/adverts/adverts.selectors';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container } from '../../components/Container/Container';
@@ -20,22 +17,18 @@ const CatalogPage = () => {
   const adverts = useSelector(state => selectAdverts(state));
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
-  const filterAdverts = useSelector(state => selectFilterAdverts(state));
-  // const [onClick, setOnClick] = useState(false);
   // const page = useSelector(state => state.adverts.page);
+  const [filterAdverts, setFilterAdverts] = useState();
 
   const limit = 12;
 
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
-
-  console.log(filterAdverts);
 
   const onClickLoadMore = () => {
     setPage(page + 1);
     if (page > 1) {
       setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
     }
-    console.log(filterAdverts);
   };
 
   useEffect(() => {
@@ -52,14 +45,24 @@ const CatalogPage = () => {
     dispatch(getAllOfAdverts({ limit: limit, page: page }));
   }, [dispatch, page]);
 
+  const filteredAdverts = [];
+  if (filterAdverts) {
+    filteredAdverts.push(filterAdverts);
+  }
+
   return (
     <Container>
-      {adverts && (
+      {allAdverts && (
         <>
-          <SearchBar />
-          {/* <SearchBar onSubmit={formSubmit} /> */}
-          {/* <AdvertList adverts={allAdverts} /> */}
-          <AdvertList adverts={allAdverts} />
+          <SearchBar
+            filterAdverts={filterAdverts}
+            setFilterAdverts={setFilterAdverts}
+          />
+          {filteredAdverts.length > 0 ? (
+            <AdvertList adverts={filteredAdverts} />
+          ) : (
+            <AdvertList adverts={allAdverts} />
+          )}
           {allAdverts.length < 36 && (
             <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
           )}

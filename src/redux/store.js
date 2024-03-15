@@ -24,7 +24,6 @@ export const store = configureStore({
   reducer: {
     advertStore: persistReducer(advertsConfig, advertsReducer),
     modal: modalReducer,
-    // filter: filterReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

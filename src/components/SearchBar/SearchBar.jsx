@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   SearchSelectBrand,
   SearchSelectPrice,
@@ -9,24 +9,17 @@ import {
 import SearchButton from './SearchButton';
 import { Wrapper, Wrap, WrapCont } from './SearchBar.styled';
 import optionsBrand from './../../helpers/makes.json';
-import { useDispatch, useSelector } from 'react-redux';
-import { selectAdverts } from '../../redux/adverts/adverts.selectors';
-import { filterAdverts } from 'redux/adverts/advertSlice';
-// import { selectFilterAdverts } from '../../redux/adverts/adverts.selectors';
+import { useSelector } from 'react-redux';
+import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
 
-const SearchBar = () => {
-  const dispatch = useDispatch();
+const SearchBar = ({ filterAdverts, setFilterAdverts }) => {
   const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
-  const adverts = useSelector(state => selectAdverts(state));
-  // const filteredAdverts = useSelector(state => selectFilterAdverts(state));
-  // console.log(filteredAdverts);
-
+  const allAdverts = useSelector(state => selectAllAdverts(state));
   const options = ['10$', '20$', '30$', '40$', '50$'];
 
   const handleSelectBrandChange = e => {
     setSelectedValueCarBrand(e.target.value);
-    console.log(selectedValueCarBrand);
   };
 
   const handleSelectPriceChange = e => {
@@ -34,15 +27,10 @@ const SearchBar = () => {
   };
 
   const onSearchByMake = () => {
-    const filteredAdverts = adverts.find(
+    const filterAdverts = allAdverts.find(
       advert => advert.make === selectedValueCarBrand
     );
-    //   const filterAdverts = [...[filteredAdverts]];
-    //   console.log(filterAdverts);
-    //   return filterAdverts;
-    // };
-
-    dispatch(filterAdverts(filteredAdverts));
+    setFilterAdverts(filterAdverts);
   };
 
   return (
