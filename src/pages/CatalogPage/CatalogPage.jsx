@@ -17,11 +17,9 @@ const CatalogPage = () => {
   const adverts = useSelector(state => selectAdverts(state));
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
-  // const page = useSelector(state => state.adverts.page);
   const [filterAdverts, setFilterAdverts] = useState();
 
   const limit = 12;
-
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {

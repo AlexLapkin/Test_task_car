@@ -12,7 +12,7 @@ import optionsBrand from './../../helpers/makes.json';
 import { useSelector } from 'react-redux';
 import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
 
-const SearchBar = ({ filterAdverts, setFilterAdverts }) => {
+const SearchBar = ({ setFilterAdverts }) => {
   const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
   const allAdverts = useSelector(state => selectAllAdverts(state));
