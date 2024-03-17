@@ -26,6 +26,7 @@ const AdvertList = ({ adverts }) => {
             mileage,
           }) => (
             <AdvertListItem
+              adverts={adverts}
               key={id}
               make={make}
               model={model}

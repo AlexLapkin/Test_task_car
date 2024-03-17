@@ -9,14 +9,17 @@ import {
 import SearchButton from './SearchButton';
 import { Wrapper, Wrap, WrapCont } from './SearchBar.styled';
 import optionsBrand from './../../helpers/makes.json';
-import { useSelector } from 'react-redux';
-import { selectAllAdverts } from '../../redux/adverts/adverts.selectors';
 
-const SearchBar = ({ setFilterAdverts }) => {
+const SearchBar = ({
+  setFilterAdverts,
+  setIsSearchAdvert,
+  allAdverts,
+  setClickButtonOnSearch,
+}) => {
   const [selectedValueCarPrice, setSelectedValueCarPrice] = useState('');
   const [selectedValueCarBrand, setSelectedValueCarBrand] = useState('');
-  const allAdverts = useSelector(state => selectAllAdverts(state));
-  const options = ['10$', '20$', '30$', '40$', '50$'];
+
+  const options = ['$10', '$20', '$30', '$40', '$50'];
 
   const handleSelectBrandChange = e => {
     setSelectedValueCarBrand(e.target.value);
@@ -27,10 +30,18 @@ const SearchBar = ({ setFilterAdverts }) => {
   };
 
   const onSearchByMake = () => {
+    setClickButtonOnSearch(true);
     const filterAdverts = allAdverts.find(
-      advert => advert.make === selectedValueCarBrand
+      advert =>
+        advert.make === selectedValueCarBrand &&
+        advert.rentalPrice === selectedValueCarPrice
     );
     setFilterAdverts(filterAdverts);
+    if (!filterAdverts) {
+      setIsSearchAdvert(false);
+    } else {
+      setIsSearchAdvert(true);
+    }
   };
 
   return (
@@ -41,7 +52,7 @@ const SearchBar = ({ setFilterAdverts }) => {
           value={selectedValueCarBrand}
           onChange={handleSelectBrandChange}
         >
-          <option value="">Enter the text</option>
+          <option value="">Select brand</option>
           {optionsBrand.map((option, index) => (
             <option key={index} value={option}>
               {option}
@@ -65,7 +76,7 @@ const SearchBar = ({ setFilterAdverts }) => {
       </Wrap>
 
       <Wrap>
-        <SearchSelectText>Price/ 1hour</SearchSelectText>
+        <SearchSelectText>Car mileage / km</SearchSelectText>
         <WrapCont>
           <SearchInputMileageFrom
             input

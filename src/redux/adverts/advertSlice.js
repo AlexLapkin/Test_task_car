@@ -1,5 +1,5 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { getAllAdverts, getAllOfAdverts } from './adverts.operations';
+import { getAllAdverts } from './adverts.operations';
 
 const initialState = {
   adverts: [],
@@ -38,11 +38,6 @@ const advertsSlice = createSlice({
         state.isLoading = false;
         state.adverts = payload;
       })
-      .addCase(getAllOfAdverts.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
-        state.allAdverts = payload;
-      })
-
       .addMatcher(isAnyOf(getAllAdverts.pending), state => {
         state.isLoading = true;
       })
@@ -55,9 +50,5 @@ const advertsSlice = createSlice({
 
 // Генератори екшн-креаторс
 export const advertsReducer = advertsSlice.reducer;
-export const {
-  addToFavorites,
-  removeFromFavorites,
-  filterAdverts,
-  clearFilterAdverts,
-} = advertsSlice.actions;
+export const { addToFavorites, removeFromFavorites, filterAdverts } =
+  advertsSlice.actions;

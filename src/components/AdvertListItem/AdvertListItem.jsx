@@ -10,15 +10,13 @@ import {
   AddFavoriteIcon,
   RemFavoriteIcon,
 } from './AdvertListItem.styled';
-import {
-  selectFavoriteAdverts,
-  selectAllAdverts,
-} from 'redux/adverts/adverts.selectors';
+import { selectFavoriteAdverts } from 'redux/adverts/adverts.selectors';
 import { addToFavorites, removeFromFavorites } from 'redux/adverts/advertSlice';
 import icons from './../../images/icons.svg';
 import Notiflix from 'notiflix';
 
 const AdvertListItem = ({
+  adverts,
   make,
   model,
   id,
@@ -38,13 +36,12 @@ const AdvertListItem = ({
 }) => {
   const dispatch = useDispatch();
   const favoriteAdverts = useSelector(state => selectFavoriteAdverts(state));
-  const allAdverts = useSelector(state => selectAllAdverts(state));
   const isToFav = useSelector(state =>
     state.advertStore.favoriteAdverts.some(item => item.id === id)
   );
 
   const handleClickToFavorite = item => {
-    const favoriteItem = allAdverts.find(item => item.id === id);
+    const favoriteItem = adverts.find(item => item.id === id);
 
     const isFavorite = favoriteAdverts.some(item => item.id === id);
     if (isFavorite) {

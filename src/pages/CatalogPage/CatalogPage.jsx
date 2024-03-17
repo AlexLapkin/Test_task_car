@@ -1,8 +1,5 @@
 import AdvertList from '../../components/AdvertList/AdvertList';
-import {
-  getAllAdverts,
-  getAllOfAdverts,
-} from '../../redux/adverts/adverts.operations';
+import { getAllAdverts } from '../../redux/adverts/adverts.operations';
 import { selectAdverts } from '../../redux/adverts/adverts.selectors';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -10,6 +7,7 @@ import { Container } from '../../components/Container/Container';
 import SearchBar from 'components/SearchBar/SearchBar';
 import ButtonLoadMore from 'components/ButtonLoadMore/ButtonLoadMore';
 import ModalCar from 'components/ModalCar/ModalCar';
+import { TextMessage } from './CatalogPage.styled';
 // import { Loader } from './../../components/Loader/Loader';
 
 const CatalogPage = () => {
@@ -18,15 +16,14 @@ const CatalogPage = () => {
   const [allAdverts, setAllAdverts] = useState([]);
   const [page, setPage] = useState(1);
   const [filterAdverts, setFilterAdverts] = useState();
+  const [isSearchAdvert, setIsSearchAdvert] = useState(false);
+  const [clickButtonOnSearch, setClickButtonOnSearch] = useState(false);
 
   const limit = 12;
   const isOpenModal = useSelector(state => state.modal.isOpenModal);
 
   const onClickLoadMore = () => {
     setPage(page + 1);
-    if (page > 1) {
-      setAllAdverts(prevAdverts => [...prevAdverts, ...adverts]);
-    }
   };
 
   useEffect(() => {
@@ -36,12 +33,15 @@ const CatalogPage = () => {
   useEffect(() => {
     if (page === 1) {
       setAllAdverts(adverts);
+    } else {
+      setAllAdverts(prevAdverts => {
+        const uniqueAdverts = adverts.filter(
+          ad => !prevAdverts.some(prevAd => prevAd.id === ad.id)
+        );
+        return [...prevAdverts, ...uniqueAdverts];
+      });
     }
   }, [adverts, page]);
-
-  useEffect(() => {
-    dispatch(getAllOfAdverts({ limit: limit, page: page }));
-  }, [dispatch, page]);
 
   const filteredAdverts = [];
   if (filterAdverts) {
@@ -53,16 +53,23 @@ const CatalogPage = () => {
       {allAdverts && (
         <>
           <SearchBar
+            allAdverts={allAdverts}
             filterAdverts={filterAdverts}
             setFilterAdverts={setFilterAdverts}
+            setIsSearchAdvert={setIsSearchAdvert}
+            setClickButtonOnSearch={setClickButtonOnSearch}
           />
-          {filteredAdverts.length > 0 ? (
+          {clickButtonOnSearch === false ? (
+            <>
+              <AdvertList adverts={allAdverts} />
+              {allAdverts.length < 36 && (
+                <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
+              )}
+            </>
+          ) : isSearchAdvert === true ? (
             <AdvertList adverts={filteredAdverts} />
           ) : (
-            <AdvertList adverts={allAdverts} />
-          )}
-          {allAdverts.length < 36 && (
-            <ButtonLoadMore onClickLoadMore={onClickLoadMore} />
+            <TextMessage>Nothing found for your search!</TextMessage>
           )}
         </>
       )}
